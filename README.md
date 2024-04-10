@@ -6,7 +6,7 @@ Dani, Karla, and Clarissa
 
 Team Name: 
 -
-blank
+DCK
 
 Description Of Our Project:
 -
@@ -18,7 +18,5 @@ Our reason for choosing this project:
 
 Inspiration:
 -
-blank
+The combined experience of dress up games as kids, the fun and creativity that was afforded to us as children by being able to design such characters.
 
-Rough Plan:
-- 
