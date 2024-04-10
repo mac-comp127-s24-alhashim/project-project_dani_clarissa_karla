@@ -2,7 +2,7 @@
 
 Team Members: 
 -
-Dani, Karla, and Clarissa
+Dani, Clarissa, and Karla
 
 Team Name: 
 -
