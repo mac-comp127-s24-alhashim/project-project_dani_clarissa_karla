@@ -20,4 +20,8 @@ Inspiration:
 -
 The combined experience of dress up games as kids, the fun and creativity that was afforded to us as children by being able to design such characters.
 
-https://raw.githubusercontent.com/mac-comp127-s24-alhashim/project-project_dani_clarissa_karla/main/UML%20Project.jpeg![image](https://github.com/mac-comp127-s24-alhashim/project-project_dani_clarissa_karla/assets/156988538/b64ea00e-2c8c-4e16-94f6-86abef61d012)
+UML CLASS DIAGRAM:
+-
+https://cdn.discordapp.com/attachments/1228382473168093237/1228383332102836304/UML_Project.jpg?ex=662bd820&is=66196320&hm=8171792b0b6d41dd5e093aaacb35b647dbf447d4ea01153bcfbfcf474ebc981a&
+
+
