@@ -4,7 +4,9 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
+import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
+import java.awt.Color;
 
 public class MainGame {
 
@@ -41,8 +43,23 @@ public class MainGame {
         startButton.setScale(5);
         startButton.setCenter(500, 500);
         canvas.add(startButton);
+        Rectangle buttonBack = new Rectangle(0, 0, 80, 40);
+        buttonBack.setFillColor(Color.PINK);
+        buttonBack.setCenter(500, 500);
+        canvas.add(buttonBack);
+
+        startButton.onClick(() -> {
+            buildingSelection(canvas);
+        });
     }
 
+    public void buildingSelection(CanvasWindow canvas){
+        canvas.removeAll();
+    }
+
+    public void run(){
+
+    }
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
     }
