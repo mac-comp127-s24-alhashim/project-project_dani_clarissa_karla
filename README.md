@@ -20,3 +20,4 @@ Inspiration:
 -
 The combined experience of dress up games as kids, the fun and creativity that was afforded to us as children by being able to design such characters.
 
+https://raw.githubusercontent.com/mac-comp127-s24-alhashim/project-project_dani_clarissa_karla/main/UML%20Project.jpeg![image](https://github.com/mac-comp127-s24-alhashim/project-project_dani_clarissa_karla/assets/156988538/b64ea00e-2c8c-4e16-94f6-86abef61d012)
