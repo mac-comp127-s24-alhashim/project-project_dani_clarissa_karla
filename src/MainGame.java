@@ -65,10 +65,13 @@ public class MainGame {
         oldMain.setMaxWidth(1180/2);
         canvas.add(oldMain);
 
-        Button oldMainButton = new Button("", 100, 40);
-        oldMainButton.setCenter(100, 500);
+        Button oldMainButton = new Button("", 120, 40);
+        oldMainButton.setCenter(411, 380);
+        oldMainButton.setClear();
         canvas.add(oldMainButton);
-        
+
+        // canvas.onClick(e -> System.out.print(e.getPosition()));
+
         oldMainButton.onClick(() -> {
             characterCreator(canvas);
         });

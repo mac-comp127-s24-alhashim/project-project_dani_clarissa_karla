@@ -50,6 +50,11 @@ public class Button extends EmbeddedSwingComponent {
         button.setBorder(new LineBorder(color));
     }
 
+    public void setClear(){
+            button.setOpaque(false);
+            button.setContentAreaFilled(false);
+    }
+
     public void onClick(Runnable callback) {
         button.addActionListener(e -> {
             if (getCanvas() == null) {
