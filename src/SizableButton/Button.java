@@ -42,6 +42,14 @@ public class Button extends EmbeddedSwingComponent {
         changed();
     }
 
+    public void setFillColor(Color color){
+        button.setBackground(color);
+    }
+
+    public void setLineColor(Color color){
+        button.setBorder(new LineBorder(color));
+    }
+
     public void onClick(Runnable callback) {
         button.addActionListener(e -> {
             if (getCanvas() == null) {

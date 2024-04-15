@@ -32,13 +32,6 @@ public class MainGame {
     private Image hands = new Image(handsList.get(0));
     private Image feet = new Image(feetList.get(0));
     private Image tail = new Image(tailList.get(0));
-    
-
-    // Button jb = new Button("Test", 200, 200);
-    // jb.setPosition(100, 100);
-    // jb.onClick(() -> jb.setPosition(jb.getX() + 2, jb.getY() + 2));
-
-    // window.add(jb);
 
 
     public MainGame(){
@@ -47,11 +40,16 @@ public class MainGame {
         startText.setFont("Times New Roman", FontStyle.PLAIN, 50);
         startText.setCenter(500, 100);
         canvas.add(startText);
+
         Button startButton = new Button("Start", 100, 40);
         startButton.setCenter(500, 500);
+        startButton.setFillColor(new Color(255, 115, 190));
+        startButton.setLineColor(new Color(255, 105, 180));
         canvas.add(startButton);
+
         Rectangle buttonBack = new Rectangle(0, 0, 115, 55);
-        buttonBack.setFillColor(Color.PINK);
+        buttonBack.setFillColor(new Color(255, 20, 147));
+        buttonBack.setStroked(false);
         buttonBack.setCenter(500, 500);
         canvas.add(buttonBack);
 
@@ -65,12 +63,21 @@ public class MainGame {
         Image oldMain = new Image("Buildings\\old main sketch.jpeg");
         oldMain.setMaxHeight(820/2);
         oldMain.setMaxWidth(1180/2);
-        
         canvas.add(oldMain);
+
+        Button oldMainButton = new Button("", 100, 40);
+        oldMainButton.setCenter(100, 500);
+        canvas.add(oldMainButton);
+        
+        oldMainButton.onClick(() -> {
+            characterCreator(canvas);
+        });
+
     }
 
-    public void run(){
-
+    public void characterCreator(CanvasWindow canvas){
+        canvas.removeAll();
+        
     }
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
