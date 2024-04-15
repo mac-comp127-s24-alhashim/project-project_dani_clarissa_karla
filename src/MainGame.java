@@ -62,6 +62,11 @@ public class MainGame {
 
     public void buildingSelection(CanvasWindow canvas){
         canvas.removeAll();
+        Image oldMain = new Image("Buildings\\old main sketch.jpeg");
+        oldMain.setMaxHeight(820/2);
+        oldMain.setMaxWidth(1180/2);
+        
+        canvas.add(oldMain);
     }
 
     public void run(){
