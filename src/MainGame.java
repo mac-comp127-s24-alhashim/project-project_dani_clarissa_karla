@@ -15,6 +15,8 @@ public class MainGame {
     private String creatureName;
     public CanvasWindow canvas;
 
+    private String backgroundChoice;
+
     private List<String> bodyList = List.of("");
     private List<String> eyesList = List.of("");
     private List<String> mouthList = List.of("");
@@ -63,6 +65,7 @@ public class MainGame {
 
     public void buildingSelection(CanvasWindow canvas){
         canvas.removeAll();
+
         Image oldMain = new Image("Buildings\\old main sketch.jpeg");
         oldMain.setMaxWidth(CANVAS_WIDTH/2);
         oldMain.setMaxHeight(CANVAS_HEIGHT/2);
@@ -76,6 +79,55 @@ public class MainGame {
         // canvas.onClick(e -> System.out.print(e.getPosition()));
 
         oldMainButton.onClick(() -> {
+            // backgroundChoice = oldMainBackground;
+            characterCreator(canvas);
+        });
+
+        Image jwall = new Image("Buildings\\jwall-Sketch.jpeg");
+        jwall.setPosition(CANVAS_WIDTH/2, 0);
+        jwall.setMaxWidth(CANVAS_WIDTH/2);
+        jwall.setMaxHeight(CANVAS_HEIGHT/2);
+        canvas.add(jwall);
+
+        Button jwallButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        jwallButton.setPosition(CANVAS_WIDTH/2, 0);
+        jwallButton.setClear();
+        canvas.add(jwallButton);
+
+        jwallButton.onClick(() -> {
+            // backgroundChoice = jwallBackground;
+            characterCreator(canvas);
+        });
+
+        Image carnegie = new Image("Buildings\\Carnegie-Sketch.jpeg");
+        carnegie.setPosition(0, CANVAS_HEIGHT/2);
+        carnegie.setMaxWidth(CANVAS_WIDTH/2);
+        carnegie.setMaxHeight(CANVAS_HEIGHT/2);
+        canvas.add(carnegie);
+
+        Button carnegieButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        carnegieButton.setPosition(0, CANVAS_HEIGHT/2);
+        carnegieButton.setClear();
+        canvas.add(carnegieButton);
+
+        carnegieButton.onClick(() -> {
+            // backgroundChoice = carnegieBackground;
+            characterCreator(canvas);
+        });
+
+        Image olri = new Image("Buildings\\Olri-Sketch.jpeg");
+        olri.setPosition(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        olri.setMaxWidth(CANVAS_WIDTH/2);
+        olri.setMaxHeight(CANVAS_HEIGHT/2);
+        canvas.add(olri);
+
+        Button olriButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        olriButton.setPosition(CANVAS_WIDTH/2, 0);
+        olriButton.setClear();
+        canvas.add(olriButton);
+
+        olriButton.onClick(() -> {
+            // backgroundChoice = olriBackground;
             characterCreator(canvas);
         });
 
