@@ -33,16 +33,19 @@ public class MainGame {
     private Image feet = new Image(feetList.get(0));
     private Image tail = new Image(tailList.get(0));
 
+    private static final int CANVAS_WIDTH = 1000;
+    private static final int CANVAS_HEIGHT = 750;
+
 
     public MainGame(){
-        canvas = new CanvasWindow("Main Window", 1000, 750);
+        canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsText startText = new GraphicsText("Create a Mascot!");
         startText.setFont("Times New Roman", FontStyle.PLAIN, 50);
-        startText.setCenter(500, 100);
+        startText.setCenter(CANVAS_WIDTH/2, 100);
         canvas.add(startText);
 
         Button startButton = new Button("Start", 100, 40);
-        startButton.setCenter(500, 500);
+        startButton.setCenter(CANVAS_WIDTH/2, 500);
         startButton.setFillColor(new Color(255, 115, 190));
         startButton.setLineColor(new Color(255, 105, 180));
         canvas.add(startButton);
@@ -50,7 +53,7 @@ public class MainGame {
         Rectangle buttonBack = new Rectangle(0, 0, 115, 55);
         buttonBack.setFillColor(new Color(255, 20, 147));
         buttonBack.setStroked(false);
-        buttonBack.setCenter(500, 500);
+        buttonBack.setCenter(CANVAS_WIDTH/2, 500);
         canvas.add(buttonBack);
 
         startButton.onClick(() -> {
@@ -61,12 +64,12 @@ public class MainGame {
     public void buildingSelection(CanvasWindow canvas){
         canvas.removeAll();
         Image oldMain = new Image("Buildings\\old main sketch.jpeg");
-        oldMain.setMaxHeight(820/2);
-        oldMain.setMaxWidth(1180/2);
+        oldMain.setMaxWidth(CANVAS_WIDTH/2);
+        oldMain.setMaxHeight(CANVAS_HEIGHT/2);
         canvas.add(oldMain);
 
-        Button oldMainButton = new Button("", 120, 40);
-        oldMainButton.setCenter(411, 380);
+        Button oldMainButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        oldMainButton.setPosition(0, 0);
         oldMainButton.setClear();
         canvas.add(oldMainButton);
 
