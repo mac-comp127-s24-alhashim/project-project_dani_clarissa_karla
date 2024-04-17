@@ -18,14 +18,14 @@ public class MainGame {
     private String backgroundChoice;
 
     private List<String> bodyList = List.of("");
-    private List<String> eyesList = List.of("");
-    private List<String> mouthList = List.of("");
+    private List<String> eyesList = List.of("", "Body Parts//Eyes-01.png");
+    private List<String> mouthList = List.of("", "Body Parts//Mouth-01.png");
     private List<String> accessoriesList = List.of("");
     private List<String> handsList = List.of("");
     private List<String> feetList = List.of("");
     private List<String> tailList = List.of("");
-
-
+    private List<String> earsList = List.of("", "Body Parts//Ears-01.png");
+    private List<String> noseList = List.of("", "Body Parts//Nose-01.png");
 
     private Image body = new Image(bodyList.get(0));
     private Image eyes = new Image(eyesList.get(0));
@@ -34,6 +34,8 @@ public class MainGame {
     private Image hands = new Image(handsList.get(0));
     private Image feet = new Image(feetList.get(0));
     private Image tail = new Image(tailList.get(0));
+    private Image ears = new Image(earsList.get(0));
+    private Image nose = new Image(noseList.get(0));
 
     private static final int CANVAS_WIDTH = 1000;
     private static final int CANVAS_HEIGHT = 750;
@@ -135,6 +137,10 @@ public class MainGame {
 
     public void characterCreator(CanvasWindow canvas){
         canvas.removeAll();
+
+
+
+        
         
     }
     public static void main(String[] args) {
