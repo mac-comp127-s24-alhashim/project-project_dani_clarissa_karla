@@ -122,7 +122,7 @@ public class MainGame {
         canvas.add(olri);
 
         Button olriButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        olriButton.setPosition(CANVAS_WIDTH/2, 0);
+        olriButton.setPosition(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
         olriButton.setClear();
         canvas.add(olriButton);
 
@@ -136,9 +136,14 @@ public class MainGame {
     public void characterCreator(CanvasWindow canvas){
         canvas.removeAll();
 
-
-
-
+        canvas.add(body);
+        canvas.add(eyes);
+        canvas.add(mouth);
+        canvas.add(accessories);
+        canvas.add(hands);
+        canvas.add(feet);
+        canvas.add(ears);
+        canvas.add(nose);
         
     }
     public static void main(String[] args) {
