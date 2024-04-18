@@ -17,7 +17,7 @@ public class MainGame {
 
     private String backgroundChoice;
 
-    private List<String> bodyList = List.of("");
+    private List<String> bodyList = List.of("", "Body Parts//Body-01.png", "Body Parts//Body-02.png", "Body Parts//Body-03.png");
     private List<String> eyesList = List.of("", "Body Parts//Eyes-01.png");
     private List<String> mouthList = List.of("", "Body Parts//Mouth-01.png");
     private List<String> accessoriesList = List.of("");
