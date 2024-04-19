@@ -38,9 +38,9 @@ public class basicdisplaysample {
        // });
         
        Button color2 = new Button("red", 100, 40);
-        color2.setPosition(150, 150);
         color2.setFillColor(new Color(140, 158, 255));
-        //color1.setLineColor(new Color(140, 158, 255));
+        // color1.setLineColor(new Color(140, 158, 255));
+        color2.setPosition(150, 150);
         canvas.add(color2);
         
        // color2.onClick(() -> {
@@ -76,6 +76,12 @@ public class basicdisplaysample {
        // color5.onClick(() -> {
        //     ;
        // });
+
+
+
+       //lambda should call MainGame.canvas.remove(part)
+       //part = new Image(new image)
+       //MainGame.canvas.add(part)
 
 
     }

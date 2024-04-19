@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 import edu.macalester.graphics.CanvasWindow;
@@ -8,6 +11,7 @@ import edu.macalester.graphics.Rectangle;
 // import edu.macalester.graphics.ui.Button;
 import SizableButton.*;
 import java.awt.Color;
+import java.io.File;
 
 
 public class MainGame {
@@ -16,6 +20,8 @@ public class MainGame {
     public CanvasWindow canvas;
 
     private String backgroundChoice;
+
+
 
     private List<String> bodyList = List.of("", "Body Parts//Body-01.png", "Body Parts//Body-02.png", "Body Parts//Body-03.png");
     private List<String> eyesList = List.of("", "Body Parts//Eyes-01.png");
@@ -40,6 +46,10 @@ public class MainGame {
 
 
     public MainGame(){
+
+
+
+
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsText startText = new GraphicsText("Create a Mascot!");
         startText.setFont("Times New Roman", FontStyle.PLAIN, 50);
@@ -146,8 +156,22 @@ public class MainGame {
         canvas.add(nose);
         
     }
+
+    public static List<String> readFolder(String folderName){
+        List<String> folderList = new ArrayList<>();
+        folderList.add("");
+        File folder = new File(folderName);
+        for (File fileEntry : folder.listFiles()){
+            if (!fileEntry.isDirectory()) {
+                folderList.add(fileEntry.getPath());
+            }
+        }
+        folderList.sort(Comparator.naturalOrder());
+        return folderList;
+    }
     public static void main(String[] args) {
-        MainGame mainGame = new MainGame();
+        // MainGame mainGame = new MainGame();
+        System.out.println(readFolder("res/Body Parts/Bodies"));
     }
     
 }
