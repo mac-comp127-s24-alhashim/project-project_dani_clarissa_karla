@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 import edu.macalester.graphics.CanvasWindow;
@@ -8,6 +11,7 @@ import edu.macalester.graphics.Rectangle;
 // import edu.macalester.graphics.ui.Button;
 import SizableButton.*;
 import java.awt.Color;
+import java.io.File;
 
 
 public class MainGame {
@@ -17,34 +21,50 @@ public class MainGame {
 
     private String backgroundChoice;
 
-    private List<String> bodyList = List.of("");
-    private List<String> eyesList = List.of("", "Body Parts//Eyes-01.png");
-    private List<String> mouthList = List.of("", "Body Parts//Mouth-01.png");
-    private List<String> accessoriesList = List.of("");
-    private List<String> handsList = List.of("");
-    private List<String> feetList = List.of("");
-    private List<String> tailList = List.of("");
-    private List<String> earsList = List.of("", "Body Parts//Ears-01.png");
-    private List<String> noseList = List.of("", "Body Parts//Nose-01.png");
 
-    private Image body = new Image(bodyList.get(0));
-    private Image eyes = new Image(eyesList.get(0));
-    private Image mouth = new Image(mouthList.get(0));
-    private Image accessories = new Image(accessoriesList.get(0));
-    private Image hands = new Image(handsList.get(0));
-    private Image feet = new Image(feetList.get(0));
-    private Image tail = new Image(tailList.get(0));
-    private Image ears = new Image(earsList.get(0));
-    private Image nose = new Image(noseList.get(0));
+
+
+
+    private List<String> bodyList;
+    private List<String> eyesList;
+    private List<String> mouthList;
+    private List<String> accessoriesList;
+    private List<String> handsList;
+    private List<String> feetList;
+    private List<String> earsList;
+    private List<String> noseList;
+
+    private Image body = new Image("");
+    private Image eyes = new Image("");
+    private Image mouth = new Image("");
+    private Image accessories = new Image("");
+    private Image hands = new Image("");
+    private Image feet = new Image("");
+    private Image ears = new Image("");
+    private Image nose = new Image("");
+
 
     private static final int CANVAS_WIDTH = 1000;
     private static final int CANVAS_HEIGHT = 750;
 
 
     public MainGame(){
+
+        bodyList = readFolder("res/Body Parts/Bodies");
+        eyesList = readFolder("res/Body Parts/Eyes");
+        mouthList = readFolder("res/Body Parts/Mouths");
+        accessoriesList = readFolder("res/Body Parts/Accessories");
+        handsList = readFolder("res/Body Parts/Hands");
+        feetList = readFolder("res/Body Parts/Feet");
+        earsList = readFolder("res/Body Parts/Ears");
+        noseList = readFolder("res/Body Parts/Noses");
+
+
+
+
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsText startText = new GraphicsText("Create a Mascot!");
-        startText.setFont("Times New Roman", FontStyle.PLAIN, 50);
+        startText.setFont("Times New Roman", FontStyle.BOLD, 50);
         startText.setCenter(CANVAS_WIDTH/2, 100);
         canvas.add(startText);
 
@@ -124,7 +144,7 @@ public class MainGame {
         canvas.add(olri);
 
         Button olriButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        olriButton.setPosition(CANVAS_WIDTH/2, 0);
+        olriButton.setPosition(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
         olriButton.setClear();
         canvas.add(olriButton);
 
@@ -138,13 +158,64 @@ public class MainGame {
     public void characterCreator(CanvasWindow canvas){
         canvas.removeAll();
 
-
+        canvas.add(body);
+        canvas.add(eyes);
+        canvas.add(mouth);
+        canvas.add(accessories);
+        canvas.add(hands);
+        canvas.add(feet);
+        canvas.add(ears);
+        canvas.add(nose);
 
         
+    }
+
+    public void changeBody(int val){
+        canvas.remove(body);
+        body = new Image(bodyList.get(val));
+        //add pos
+        canvas.add(body);
+    }
+
+    private static void changeEars(int val){
         
+    }
+
+    private static void changeTail(int val){
+        
+    }
+
+    private static void changeHands(int val){
+        
+    }
+
+    private static void changeFeet(int val){
+        
+    }
+
+    private static void changeEyes(int val){
+        
+    }
+
+    private static void changeAcc(int val){
+        
+    }
+
+    public static List<String> readFolder(String folderName){
+        List<String> folderList = new ArrayList<>();
+        folderList.add("");
+        File folder = new File(folderName);
+        for (File fileEntry : folder.listFiles()){
+            if (!fileEntry.isDirectory()) {
+                folderList.add(fileEntry.getPath().substring(4));
+            }
+        }
+        folderList.sort(Comparator.naturalOrder());
+        return folderList;
     }
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
+        // System.out.println(readFolder("res/Body Parts/Bodies"));
     }
     
 }
