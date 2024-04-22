@@ -23,6 +23,8 @@ public class MainGame {
 
 
 
+
+
     private List<String> bodyList;
     private List<String> eyesList;
     private List<String> mouthList;
@@ -40,6 +42,7 @@ public class MainGame {
     private Image feet = new Image("");
     private Image ears = new Image("");
     private Image nose = new Image("");
+
 
     private static final int CANVAS_WIDTH = 1000;
     private static final int CANVAS_HEIGHT = 750;
@@ -163,6 +166,7 @@ public class MainGame {
         canvas.add(feet);
         canvas.add(ears);
         canvas.add(nose);
+
         
     }
 
