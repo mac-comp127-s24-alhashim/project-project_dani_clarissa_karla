@@ -177,29 +177,50 @@ public class MainGame {
         canvas.add(body);
     }
 
-    private static void changeEars(int val){
+    private void changeEars(int val){
+        canvas.remove(ears);
+        ears = new Image(earsList.get(val));
+         //add pos
+         canvas.add(ears);
         
     }
 
-    private static void changeTail(int val){
-        
+    private void changeHands(int val){
+        canvas.remove(hands);
+        hands = new Image(handsList.get(val));
+         //add pos
+         canvas.add(hands);
     }
 
-    private static void changeHands(int val){
-        
+    private void changeFeet(int val){
+        canvas.remove(feet);
+        feet = new Image(feetList.get(val));
+         //add pos
+         canvas.add(feet);
     }
 
-    private static void changeFeet(int val){
-        
+    private void changeEyes(int val){
+        canvas.remove(eyes);
+        eyes = new Image(eyesList.get(val));
+         //add pos
+         canvas.add(eyes);
     }
 
-    private static void changeEyes(int val){
-        
+    private void changeAccessories(int val){
+        canvas.remove(accessories);
+        accessories = new Image(accessoriesList.get(val));
+         //add pos
+         canvas.add(accessories);
+         
     }
 
-    private static void changeAcc(int val){
+    private void changeNose(int val){
+        canvas.remove(nose);
+        nose = new Image(noseList.get(val));
+         //add pos
+         canvas.add(nose);
         
-    }
+        }
 
     public static List<String> readFolder(String folderName){
         List<String> folderList = new ArrayList<>();
