@@ -33,9 +33,9 @@ public class basicdisplaysample {
         //color1.setLineColor(new Color(140, 158, 255));
         canvas.add(color1);
         
-       // color1.onClick(() -> {
-       //     ;
-       // });
+       color1.onClick(() -> {
+        
+       });
         
        Button color2 = new Button("", 40, 40);
         color2.setFillColor(Color.RED);

@@ -166,6 +166,37 @@ public class MainGame {
         
     }
 
+    public void changeBody(int val){
+        canvas.remove(body);
+        body = new Image(bodyList.get(val));
+        //add pos
+        canvas.add(body);
+    }
+
+    private static void changeEars(int val){
+        
+    }
+
+    private static void changeTail(int val){
+        
+    }
+
+    private static void changeHands(int val){
+        
+    }
+
+    private static void changeFeet(int val){
+        
+    }
+
+    private static void changeEyes(int val){
+        
+    }
+
+    private static void changeAcc(int val){
+        
+    }
+
     public static List<String> readFolder(String folderName){
         List<String> folderList = new ArrayList<>();
         folderList.add("");

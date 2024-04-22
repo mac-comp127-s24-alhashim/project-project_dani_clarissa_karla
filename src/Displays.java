@@ -11,38 +11,7 @@ public class Displays {
     private double maxWidth = Double.POSITIVE_INFINITY, maxHeight = Double.POSITIVE_INFINITY;
 
     
-    private void changeBody(CanvasWindow canvas, String imagePath){
-        currentBody = new Image(0,0);
-        if(currentBody != null){
-            
-        }
-
-
-    }
-
-    private void changeEars(){
-        
-    }
-
-    private void changeTail(){
-        
-    }
-
-    private void changeHands(){
-        
-    }
-
-    private void changeFeet(){
-        
-    }
-
-    private void changeEyes(){
-        
-    }
-
-    private void changeAcc(){
-        
-    }
+    
 
     /**
      * Causes the image to shrink (preserving aspect ratio) if the image width is larger than the
