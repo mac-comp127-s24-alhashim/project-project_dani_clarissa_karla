@@ -23,6 +23,7 @@ public class MainGame {
     private List<String> accessoriesList = List.of("");
     private List<String> handsList = List.of("");
     private List<String> feetList = List.of("");
+    private List<String> tailList = List.of("");
     private List<String> earsList = List.of("", "Body Parts//Ears-01.png");
     private List<String> noseList = List.of("", "Body Parts//Nose-01.png");
 
@@ -32,6 +33,7 @@ public class MainGame {
     private Image accessories = new Image(accessoriesList.get(0));
     private Image hands = new Image(handsList.get(0));
     private Image feet = new Image(feetList.get(0));
+    private Image tail = new Image(tailList.get(0));
     private Image ears = new Image(earsList.get(0));
     private Image nose = new Image(noseList.get(0));
 
@@ -138,7 +140,7 @@ public class MainGame {
 
 
 
-
+        
         
     }
     public static void main(String[] args) {
