@@ -14,23 +14,26 @@ import java.awt.Color;
  */
 public class Hud extends GraphicsGroup {
     public Hud(String type, int num, MainGame mainGame){
+        GraphicsGroup graphicsGroup = new GraphicsGroup();
         CanvasWindow canvas = mainGame.canvas;
         if (type == "Color"){
+            //fix colors
+            
             Rectangle outerbox = new Rectangle(50, 90, 275, 150);
             outerbox.setFillColor(new Color(255, 111, 0));
             outerbox.setStroked(true);
-            canvas.add(outerbox);
+            graphicsGroup.add(outerbox);
 
             GraphicsText boxText1 = new GraphicsText("Colors");
             boxText1.setFont("Times New Roman", FontStyle.PLAIN, 25);
             boxText1.setCenter(175,125);
-            canvas.add(boxText1);
+            graphicsGroup.add(boxText1);
 
             Button color1 = new Button("", 40, 40);
             color1.setPosition(70, 150);
             color1.setFillColor(new Color(140, 158, 255));
             //color1.setLineColor(new Color(140, 158, 255));
-            canvas.add(color1);
+            graphicsGroup.add(color1);
             
         color1.onClick(() -> {
             
@@ -40,7 +43,7 @@ public class Hud extends GraphicsGroup {
             color2.setFillColor(Color.RED);
             // color2.setLineColor(Color.RED);
             color2.setPosition(150, 150);
-            canvas.add(color2);
+            graphicsGroup.add(color2);
             
         // color2.onClick(() -> {
         //     ;
@@ -50,7 +53,7 @@ public class Hud extends GraphicsGroup {
             color3.setPosition(230, 150);
             color3.setFillColor(new Color(140, 158, 255));
             //color1.setLineColor(new Color(140, 158, 255));
-            canvas.add(color3);
+            graphicsGroup.add(color3);
             
         // color3.onClick(() -> {
         //     ;
@@ -60,7 +63,7 @@ public class Hud extends GraphicsGroup {
             color4.setPosition(110, 190);
             color4.setFillColor(new Color(140, 158, 255));
             //color1.setLineColor(new Color(140, 158, 255));
-            canvas.add(color4);
+            graphicsGroup.add(color4);
             
         // color4.onClick(() -> {
         //     ;
@@ -70,7 +73,7 @@ public class Hud extends GraphicsGroup {
             color5.setPosition(190, 190);
             color5.setFillColor(new Color(140, 158, 255));
             //color1.setLineColor(new Color(140, 158, 255));
-            canvas.add(color5);
+            graphicsGroup.add(color5);
             
         // color5.onClick(() -> {
         //     ;
