@@ -205,8 +205,10 @@ public class MainGame {
     private void changeEyes(int val){
         canvas.remove(eyes);
         eyes = new Image(eyesList.get(val));
-         //add pos
-         canvas.add(eyes);
+        eyes.setMaxHeight(eyes.getImageHeight()/4);
+        eyes.setMaxWidth(eyes.getImageWidth()/4);
+        eyes.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-280);
+        canvas.add(eyes);
     }
 
     private void changeAccessories(int val){

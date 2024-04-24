@@ -72,9 +72,9 @@ public class TestImages {
         canvas.removeAll();
         
         canvas.add(body);
-        changeBody(5);
-        
+        changeBody(3);
         canvas.add(eyes);
+        changeEyes(4);
         canvas.add(mouth);
         canvas.add(accessories);
         canvas.add(hands);
@@ -116,7 +116,9 @@ public class TestImages {
     private void changeEyes(int val) {
         canvas.remove(eyes);
         eyes = new Image(eyesList.get(val));
-        // add pos
+        eyes.setMaxHeight(eyes.getImageHeight()/4);
+        eyes.setMaxWidth(eyes.getImageWidth()/4);
+        eyes.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-280);
         canvas.add(eyes);
     }
 
