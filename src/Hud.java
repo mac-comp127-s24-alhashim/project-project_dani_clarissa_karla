@@ -2,6 +2,7 @@ import java.util.List;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
+import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Image;
 import edu.macalester.graphics.Rectangle;
@@ -11,7 +12,7 @@ import java.awt.Color;
 /*
  * Creates a HUD window with a specific number of buttons
  */
-public class Hud {
+public class Hud extends GraphicsGroup {
     public Hud(String type, int num, MainGame mainGame){
         CanvasWindow canvas = mainGame.canvas;
         if (type == "Color"){

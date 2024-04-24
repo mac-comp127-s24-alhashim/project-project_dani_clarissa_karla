@@ -70,8 +70,10 @@ public class TestImages {
 
     public void characterCreator(CanvasWindow canvas) {
         canvas.removeAll();
-
+        
         canvas.add(body);
+        changeBody(5);
+        
         canvas.add(eyes);
         canvas.add(mouth);
         canvas.add(accessories);
@@ -85,6 +87,7 @@ public class TestImages {
         canvas.remove(body);
         body = new Image(bodyList.get(val));
         // add pos
+        body.setCenter((CANVAS_WIDTH/2)-50, CANVAS_HEIGHT-300);
         canvas.add(body);
     }
 

@@ -159,6 +159,7 @@ public class MainGame {
         canvas.removeAll();
 
         Hud bodyHud = new Hud("Color", 7, this);
+        canvas.add(bodyHud);
 
         canvas.add(body);
         canvas.add(eyes);
@@ -175,7 +176,7 @@ public class MainGame {
     public void changeBody(int val){
         canvas.remove(body);
         body = new Image(bodyList.get(val));
-        //add pos
+        body.setCenter((CANVAS_WIDTH/2)-50, CANVAS_HEIGHT-300);
         canvas.add(body);
     }
 
