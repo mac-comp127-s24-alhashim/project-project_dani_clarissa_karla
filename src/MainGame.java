@@ -22,9 +22,6 @@ public class MainGame {
     private String backgroundChoice;
 
 
-
-
-
     private List<String> bodyList;
     private List<String> eyesList;
     private List<String> mouthList;
@@ -48,7 +45,7 @@ public class MainGame {
     private static final int CANVAS_HEIGHT = 750;
 
 
-    public MainGame(){
+    public MainGame() {
 
         bodyList = readFolder("res/Body Parts/Bodies");
         eyesList = readFolder("res/Body Parts/Eyes");
@@ -60,16 +57,14 @@ public class MainGame {
         noseList = readFolder("res/Body Parts/Noses");
 
 
-
-
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsText startText = new GraphicsText("Create a Mascot!");
         startText.setFont("Times New Roman", FontStyle.BOLD, 50);
-        startText.setCenter(CANVAS_WIDTH/2, 100);
+        startText.setCenter(CANVAS_WIDTH / 2, 100);
         canvas.add(startText);
 
         Button startButton = new Button("Start", 100, 40);
-        startButton.setCenter(CANVAS_WIDTH/2, 500);
+        startButton.setCenter(CANVAS_WIDTH / 2, 500);
         startButton.setFillColor(new Color(255, 115, 190));
         startButton.setLineColor(new Color(255, 105, 180));
         canvas.add(startButton);
@@ -77,7 +72,7 @@ public class MainGame {
         Rectangle buttonBack = new Rectangle(0, 0, 115, 55);
         buttonBack.setFillColor(new Color(255, 20, 147));
         buttonBack.setStroked(false);
-        buttonBack.setCenter(CANVAS_WIDTH/2, 500);
+        buttonBack.setCenter(CANVAS_WIDTH / 2, 500);
         canvas.add(buttonBack);
 
         startButton.onClick(() -> {
@@ -85,15 +80,15 @@ public class MainGame {
         });
     }
 
-    public void buildingSelection(CanvasWindow canvas){
+    public void buildingSelection(CanvasWindow canvas) {
         canvas.removeAll();
 
         Image oldMain = new Image("Buildings\\old main sketch.jpeg");
-        oldMain.setMaxWidth(CANVAS_WIDTH/2);
-        oldMain.setMaxHeight(CANVAS_HEIGHT/2);
+        oldMain.setMaxWidth(CANVAS_WIDTH / 2);
+        oldMain.setMaxHeight(CANVAS_HEIGHT / 2);
         canvas.add(oldMain);
 
-        Button oldMainButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        Button oldMainButton = new Button("", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
         oldMainButton.setPosition(0, 0);
         oldMainButton.setClear();
         canvas.add(oldMainButton);
@@ -106,13 +101,13 @@ public class MainGame {
         });
 
         Image jwall = new Image("Buildings\\jwall-Sketch.jpeg");
-        jwall.setPosition(CANVAS_WIDTH/2, 0);
-        jwall.setMaxWidth(CANVAS_WIDTH/2);
-        jwall.setMaxHeight(CANVAS_HEIGHT/2);
+        jwall.setPosition(CANVAS_WIDTH / 2, 0);
+        jwall.setMaxWidth(CANVAS_WIDTH / 2);
+        jwall.setMaxHeight(CANVAS_HEIGHT / 2);
         canvas.add(jwall);
 
-        Button jwallButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        jwallButton.setPosition(CANVAS_WIDTH/2, 0);
+        Button jwallButton = new Button("", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        jwallButton.setPosition(CANVAS_WIDTH / 2, 0);
         jwallButton.setClear();
         canvas.add(jwallButton);
 
@@ -122,13 +117,13 @@ public class MainGame {
         });
 
         Image carnegie = new Image("Buildings\\Carnegie-Sketch.jpeg");
-        carnegie.setPosition(0, CANVAS_HEIGHT/2);
-        carnegie.setMaxWidth(CANVAS_WIDTH/2);
-        carnegie.setMaxHeight(CANVAS_HEIGHT/2);
+        carnegie.setPosition(0, CANVAS_HEIGHT / 2);
+        carnegie.setMaxWidth(CANVAS_WIDTH / 2);
+        carnegie.setMaxHeight(CANVAS_HEIGHT / 2);
         canvas.add(carnegie);
 
-        Button carnegieButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        carnegieButton.setPosition(0, CANVAS_HEIGHT/2);
+        Button carnegieButton = new Button("", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        carnegieButton.setPosition(0, CANVAS_HEIGHT / 2);
         carnegieButton.setClear();
         canvas.add(carnegieButton);
 
@@ -138,13 +133,13 @@ public class MainGame {
         });
 
         Image olri = new Image("Buildings\\Olri-Sketch.jpeg");
-        olri.setPosition(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        olri.setMaxWidth(CANVAS_WIDTH/2);
-        olri.setMaxHeight(CANVAS_HEIGHT/2);
+        olri.setPosition(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        olri.setMaxWidth(CANVAS_WIDTH / 2);
+        olri.setMaxHeight(CANVAS_HEIGHT / 2);
         canvas.add(olri);
 
-        Button olriButton = new Button("", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-        olriButton.setPosition(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        Button olriButton = new Button("", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        olriButton.setPosition(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
         olriButton.setClear();
         canvas.add(olriButton);
 
@@ -155,7 +150,7 @@ public class MainGame {
 
     }
 
-    public void characterCreator(CanvasWindow canvas){
+    public void characterCreator(CanvasWindow canvas) {
         canvas.removeAll();
 
         Hud bodyHud = new Hud("Color", 7, this);
@@ -170,68 +165,89 @@ public class MainGame {
         canvas.add(ears);
         canvas.add(nose);
 
-        
+
     }
 
-    public void changeBody(int val){
+    public void changeBody(int val) {
         canvas.remove(body);
         body = new Image(bodyList.get(val));
-        body.setCenter((CANVAS_WIDTH/2)-50, CANVAS_HEIGHT-300);
+        // add pos
+        body.setCenter((CANVAS_WIDTH / 2) - 50, CANVAS_HEIGHT - 300);
         canvas.add(body);
     }
 
-    private void changeEars(int val){
+    public void changeEars(int val) {
         canvas.remove(ears);
         ears = new Image(earsList.get(val));
-         //add pos
-         canvas.add(ears);
-        
+        ears.setMaxHeight(eyes.getImageHeight() / 2);
+        ears.setMaxWidth(eyes.getImageWidth() / 2);
+        ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
+        canvas.add(ears);
     }
 
-    private void changeHands(int val){
+    public void changeHands(int val) {
         canvas.remove(hands);
         hands = new Image(handsList.get(val));
-         //add pos
-         canvas.add(hands);
+        // add pos
+        canvas.add(hands);
     }
 
-    private void changeFeet(int val){
+    public void changeFeet(int val) {
         canvas.remove(feet);
         feet = new Image(feetList.get(val));
-         //add pos
-         canvas.add(feet);
+        // add pos
+        canvas.add(feet);
     }
 
-    private void changeEyes(int val){
+    public void changeEyes(int val) {
         canvas.remove(eyes);
         eyes = new Image(eyesList.get(val));
-        eyes.setMaxHeight(eyes.getImageHeight()/4);
-        eyes.setMaxWidth(eyes.getImageWidth()/4);
-        eyes.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-280);
+        eyes.setMaxHeight(eyes.getImageHeight() / 4);
+        eyes.setMaxWidth(eyes.getImageWidth() / 4);
+        eyes.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 280);
         canvas.add(eyes);
     }
 
-    private void changeAccessories(int val){
+    public void changeAccessories(int val) {
         canvas.remove(accessories);
         accessories = new Image(accessoriesList.get(val));
-         //add pos
-         canvas.add(accessories);
-         
+        // add pos
+        canvas.add(accessories);
     }
 
-    private void changeNose(int val){
+    public void changeMouth(int val) {
+        canvas.remove(mouth);
+        mouth = new Image(mouthList.get(val));
+        if (val == 5 || val == 4 || val == 6) {
+            mouth.setMaxHeight(mouth.getImageHeight() / 9);
+            mouth.setMaxWidth(mouth.getImageWidth() / 9);
+        } else {
+            mouth.setMaxHeight(mouth.getImageHeight() / 6);
+            mouth.setMaxWidth(mouth.getImageWidth() / 6);
+        }
+        mouth.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 210);
+        canvas.add(mouth);
+    }
+
+    public void changeNose(int val) {
         canvas.remove(nose);
         nose = new Image(noseList.get(val));
-         //add pos
-         canvas.add(nose);
-        
+        if (val != 1) {
+            nose.setMaxHeight(nose.getImageHeight() / 10);
+            nose.setMaxWidth(nose.getImageWidth() / 10);
+        } else {
+            nose.setMaxHeight(nose.getImageHeight() / 5);
+            nose.setMaxWidth(nose.getImageWidth() / 5);
         }
+        nose.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 255);
+        canvas.add(nose);
+    }
 
-    public static List<String> readFolder(String folderName){
+    public static List<String> readFolder(String folderName) {
         List<String> folderList = new ArrayList<>();
         folderList.add("");
         File folder = new File(folderName);
-        for (File fileEntry : folder.listFiles()){
+        for (File fileEntry : folder.listFiles()) {
             if (!fileEntry.isDirectory()) {
                 folderList.add(fileEntry.getPath().substring(4));
             }
@@ -239,9 +255,10 @@ public class MainGame {
         folderList.sort(Comparator.naturalOrder());
         return folderList;
     }
+
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
         // System.out.println(readFolder("res/Body Parts/Bodies"));
     }
-    
+
 }

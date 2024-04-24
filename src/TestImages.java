@@ -76,11 +76,14 @@ public class TestImages {
         canvas.add(eyes);
         changeEyes(4);
         canvas.add(mouth);
+        changeMouth(7);
         canvas.add(accessories);
         canvas.add(hands);
         canvas.add(feet);
         canvas.add(ears);
+        changeEars(1);
         canvas.add(nose);
+        changeNose(6);
     }
 
     public void changeBody(int val) {
@@ -94,9 +97,10 @@ public class TestImages {
     private void changeEars(int val) {
         canvas.remove(ears);
         ears = new Image(earsList.get(val));
-        // add pos
+        ears.setMaxHeight(eyes.getImageHeight()/2);
+        ears.setMaxWidth(eyes.getImageWidth()/2);
+        ears.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-350);
         canvas.add(ears);
-
     }
 
     private void changeHands(int val) {
@@ -127,15 +131,36 @@ public class TestImages {
         accessories = new Image(accessoriesList.get(val));
         // add pos
         canvas.add(accessories);
+    }
 
+    private void changeMouth(int val){
+        canvas.remove(mouth);
+        mouth = new Image(mouthList.get(val));
+        if (val == 5 || val == 4 || val == 6){
+            mouth.setMaxHeight(mouth.getImageHeight()/9);
+            mouth.setMaxWidth(mouth.getImageWidth()/9);
+        }
+        else{     
+            mouth.setMaxHeight(mouth.getImageHeight()/6);
+            mouth.setMaxWidth(mouth.getImageWidth()/6);
+        }
+            mouth.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-210);
+        canvas.add(mouth);
     }
 
     private void changeNose(int val) {
         canvas.remove(nose);
         nose = new Image(noseList.get(val));
-        // add pos
+        if (val != 1){
+            nose.setMaxHeight(nose.getImageHeight()/10);
+            nose.setMaxWidth(nose.getImageWidth()/10);
+        } 
+        else {
+            nose.setMaxHeight(nose.getImageHeight()/5);
+            nose.setMaxWidth(nose.getImageWidth()/5);
+    }
+        nose.setCenter((CANVAS_WIDTH/2)+10, CANVAS_HEIGHT-255);
         canvas.add(nose);
-
     }
 
     public static List<String> readFolder(String folderName) {
