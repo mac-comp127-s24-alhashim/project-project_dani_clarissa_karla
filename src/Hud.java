@@ -12,7 +12,7 @@ import java.awt.Color;
  * Creates a HUD window with a specific number of buttons
  */
 public class Hud {
-    public Hud(String type, int num, int row){
+    public Hud(String type, int num){
         if (type == "Color"){
 
             //max 7

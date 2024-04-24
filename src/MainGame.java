@@ -158,6 +158,8 @@ public class MainGame {
     public void characterCreator(CanvasWindow canvas){
         canvas.removeAll();
 
+        Hud bodyHud = new Hud("Color", 7, this);
+
         canvas.add(body);
         canvas.add(eyes);
         canvas.add(mouth);
