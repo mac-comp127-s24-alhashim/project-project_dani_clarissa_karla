@@ -52,7 +52,7 @@ public class MainGame {
         eyesList = readFolder("res/Body Parts/Eyes");
         mouthList = readFolder("res/Body Parts/Mouths");
         accessoriesList = readFolder("res/Body Parts/Accessories");
-        armsList = readFolder("res/Body Parts/Armss");
+        armsList = readFolder("res/Body Parts/Arms");
         legsList = readFolder("res/Body Parts/Legs");
         earsList = readFolder("res/Body Parts/Ears");
         noseList = readFolder("res/Body Parts/Noses");
