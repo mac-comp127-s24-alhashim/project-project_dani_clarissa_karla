@@ -26,8 +26,8 @@ public class MainGame {
     private List<String> eyesList;
     private List<String> mouthList;
     private List<String> accessoriesList;
-    private List<String> handsList;
-    private List<String> feetList;
+    private List<String> armsList;
+    private List<String> legsList;
     private List<String> earsList;
     private List<String> noseList;
     private List<String> buildingList;
@@ -36,8 +36,8 @@ public class MainGame {
     private Image eyes = new Image("");
     private Image mouth = new Image("");
     private Image accessories = new Image("");
-    private Image hands = new Image("");
-    private Image feet = new Image("");
+    private Image arms = new Image("");
+    private Image legs = new Image("");
     private Image ears = new Image("");
     private Image nose = new Image("");
 
@@ -52,8 +52,8 @@ public class MainGame {
         eyesList = readFolder("res/Body Parts/Eyes");
         mouthList = readFolder("res/Body Parts/Mouths");
         accessoriesList = readFolder("res/Body Parts/Accessories");
-        handsList = readFolder("res/Body Parts/Hands");
-        feetList = readFolder("res/Body Parts/Feet");
+        armsList = readFolder("res/Body Parts/Armss");
+        legsList = readFolder("res/Body Parts/Legs");
         earsList = readFolder("res/Body Parts/Ears");
         noseList = readFolder("res/Body Parts/Noses");
 
@@ -162,8 +162,8 @@ public class MainGame {
         canvas.add(eyes);
         canvas.add(mouth);
         canvas.add(accessories);
-        canvas.add(hands);
-        canvas.add(feet);
+        canvas.add(arms);
+        canvas.add(legs);
         canvas.add(ears);
         canvas.add(nose);
 
@@ -187,18 +187,18 @@ public class MainGame {
         canvas.add(ears);
     }
 
-    public void changeHands(int val) {
-        canvas.remove(hands);
-        hands = new Image(handsList.get(val));
+    public void changeArms(int val) {
+        canvas.remove(arms);
+        arms = new Image(armsList.get(val));
         // add pos
-        canvas.add(hands);
+        canvas.add(arms);
     }
 
-    public void changeFeet(int val) {
-        canvas.remove(feet);
-        feet = new Image(feetList.get(val));
+    public void changeLegs(int val) {
+        canvas.remove(legs);
+        legs = new Image(legsList.get(val));
         // add pos
-        canvas.add(feet);
+        canvas.add(legs);
     }
 
     public void changeEyes(int val) {
