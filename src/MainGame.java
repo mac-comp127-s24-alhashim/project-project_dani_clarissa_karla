@@ -30,6 +30,7 @@ public class MainGame {
     private List<String> feetList;
     private List<String> earsList;
     private List<String> noseList;
+    private List<String> buildingList;
 
     private Image body = new Image("");
     private Image eyes = new Image("");
@@ -82,6 +83,7 @@ public class MainGame {
 
     public void buildingSelection(CanvasWindow canvas) {
         canvas.removeAll();
+        buildingList = readFolder("res/Buildings");
 
         Image oldMain = new Image("Buildings\\old main sketch.jpeg");
         oldMain.setMaxWidth(CANVAS_WIDTH / 2);
@@ -258,7 +260,7 @@ public class MainGame {
 
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
-        // System.out.println(readFolder("res/Body Parts/Bodies"));
+        System.out.println(readFolder("res/Buildings"));
     }
 
 }
