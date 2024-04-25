@@ -173,7 +173,6 @@ public class MainGame {
     public void changeBody(int val) {
         canvas.remove(body);
         body = new Image(bodyList.get(val));
-        // add pos
         body.setCenter((CANVAS_WIDTH / 2) - 50, CANVAS_HEIGHT - 300);
         canvas.add(body);
     }
@@ -181,25 +180,52 @@ public class MainGame {
     public void changeEars(int val) {
         canvas.remove(ears);
         ears = new Image(earsList.get(val));
-        ears.setMaxHeight(eyes.getImageHeight() / 2);
-        ears.setMaxWidth(eyes.getImageWidth() / 2);
-        ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
+
+        if (val == 2 || val == 3 || val == 5) {
+            ears.setMaxHeight(eyes.getImageHeight() / 3);
+            ears.setMaxWidth(eyes.getImageWidth() / 3);
+        } else if (val == 6 || val == 7) {
+            ears.setMaxHeight(eyes.getImageHeight() / 3.5);
+            ears.setMaxWidth(eyes.getImageWidth() / 3.5);
+        } else if (val == 4) {
+            ears.setMaxHeight(eyes.getImageHeight() / 2.5);
+            ears.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else {
+            ears.setMaxHeight(eyes.getImageHeight() / 2);
+            ears.setMaxWidth(eyes.getImageWidth() / 2);
+        }
+        switch (val) {
+            case 1:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
+            case 2:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 390);
+            case 3:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 370);
+            case 4:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 340);
+            case 5:
+                ears.setCenter((CANVAS_WIDTH / 2) + 20, CANVAS_HEIGHT - 380);
+            case 6:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 380);
+            case 7:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 345);
+        }
         canvas.add(ears);
     }
 
-    // public void changeArms(int val) {
-    //     canvas.remove(arms);
-    //     arms = new Image(armsList.get(val));
-    //     // add pos
-    //     canvas.add(arms);
-    // }
+    public void changeArms(int val) {
+        canvas.remove(arms);
+        arms = new Image(armsList.get(val));
+        // add pos
+        canvas.add(arms);
+    }
 
-    // public void changeLegs(int val) {
-    //     canvas.remove(legs);
-    //     legs = new Image(legsList.get(val));
-    //     // add pos
-    //     canvas.add(legs);
-    // }
+    public void changeLegs(int val) {
+        canvas.remove(legs);
+        legs = new Image(legsList.get(val));
+        // add pos
+        canvas.add(legs);
+    }
 
     public void changeEyes(int val) {
         canvas.remove(eyes);
@@ -234,9 +260,12 @@ public class MainGame {
     public void changeNose(int val) {
         canvas.remove(nose);
         nose = new Image(noseList.get(val));
-        if (val != 1) {
+        if (val != 1 && val != 5) {
             nose.setMaxHeight(nose.getImageHeight() / 10);
             nose.setMaxWidth(nose.getImageWidth() / 10);
+        } else if (val == 5) {
+            nose.setMaxHeight(nose.getImageHeight() / 9);
+            nose.setMaxWidth(nose.getImageWidth() / 9);
         } else {
             nose.setMaxHeight(nose.getImageHeight() / 5);
             nose.setMaxWidth(nose.getImageWidth() / 5);
