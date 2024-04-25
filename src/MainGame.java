@@ -26,8 +26,8 @@ public class MainGame {
     private List<String> eyesList;
     private List<String> mouthList;
     private List<String> accessoriesList;
-    // private List<String> armsList;
-    // private List<String> legsList;
+    private List<String> armsList;
+    private List<String> legsList;
     private List<String> earsList;
     private List<String> noseList;
     private List<String> buildingList;
@@ -52,8 +52,8 @@ public class MainGame {
         eyesList = readFolder("res/Body Parts/Eyes");
         mouthList = readFolder("res/Body Parts/Mouths");
         accessoriesList = readFolder("res/Body Parts/Accessories");
-        // armsList = readFolder("res/Body Parts/Armss");
-        // legsList = readFolder("res/Body Parts/Legs");
+        armsList = readFolder("res/Body Parts/Armss");
+        legsList = readFolder("res/Body Parts/Legs");
         earsList = readFolder("res/Body Parts/Ears");
         noseList = readFolder("res/Body Parts/Noses");
 
