@@ -26,8 +26,8 @@ public class MainGame {
     private List<String> eyesList;
     private List<String> mouthList;
     private List<String> accessoriesList;
-    private List<String> armsList;
-    private List<String> legsList;
+    // private List<String> armsList;
+    // private List<String> legsList;
     private List<String> earsList;
     private List<String> noseList;
     private List<String> buildingList;
@@ -52,8 +52,8 @@ public class MainGame {
         eyesList = readFolder("res/Body Parts/Eyes");
         mouthList = readFolder("res/Body Parts/Mouths");
         accessoriesList = readFolder("res/Body Parts/Accessories");
-        armsList = readFolder("res/Body Parts/Armss");
-        legsList = readFolder("res/Body Parts/Legs");
+        // armsList = readFolder("res/Body Parts/Armss");
+        // legsList = readFolder("res/Body Parts/Legs");
         earsList = readFolder("res/Body Parts/Ears");
         noseList = readFolder("res/Body Parts/Noses");
 
@@ -85,7 +85,7 @@ public class MainGame {
         canvas.removeAll();
         buildingList = readFolder("res/Buildings");
 
-        Image oldMain = new Image("Buildings\\old main sketch.jpeg");
+        Image oldMain = new Image(buildingList.get(1));
         oldMain.setMaxWidth(CANVAS_WIDTH / 2);
         oldMain.setMaxHeight(CANVAS_HEIGHT / 2);
         canvas.add(oldMain);
@@ -102,7 +102,7 @@ public class MainGame {
             characterCreator(canvas);
         });
 
-        Image jwall = new Image("Buildings\\jwall-Sketch.jpeg");
+        Image jwall = new Image(buildingList.get(2));
         jwall.setPosition(CANVAS_WIDTH / 2, 0);
         jwall.setMaxWidth(CANVAS_WIDTH / 2);
         jwall.setMaxHeight(CANVAS_HEIGHT / 2);
@@ -118,7 +118,7 @@ public class MainGame {
             characterCreator(canvas);
         });
 
-        Image carnegie = new Image("Buildings\\Carnegie-Sketch.jpeg");
+        Image carnegie = new Image(buildingList.get(3));
         carnegie.setPosition(0, CANVAS_HEIGHT / 2);
         carnegie.setMaxWidth(CANVAS_WIDTH / 2);
         carnegie.setMaxHeight(CANVAS_HEIGHT / 2);
@@ -134,7 +134,7 @@ public class MainGame {
             characterCreator(canvas);
         });
 
-        Image olri = new Image("Buildings\\Olri-Sketch.jpeg");
+        Image olri = new Image(buildingList.get(4));
         olri.setPosition(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
         olri.setMaxWidth(CANVAS_WIDTH / 2);
         olri.setMaxHeight(CANVAS_HEIGHT / 2);
@@ -187,19 +187,19 @@ public class MainGame {
         canvas.add(ears);
     }
 
-    public void changeArms(int val) {
-        canvas.remove(arms);
-        arms = new Image(armsList.get(val));
-        // add pos
-        canvas.add(arms);
-    }
+    // public void changeArms(int val) {
+    //     canvas.remove(arms);
+    //     arms = new Image(armsList.get(val));
+    //     // add pos
+    //     canvas.add(arms);
+    // }
 
-    public void changeLegs(int val) {
-        canvas.remove(legs);
-        legs = new Image(legsList.get(val));
-        // add pos
-        canvas.add(legs);
-    }
+    // public void changeLegs(int val) {
+    //     canvas.remove(legs);
+    //     legs = new Image(legsList.get(val));
+    //     // add pos
+    //     canvas.add(legs);
+    // }
 
     public void changeEyes(int val) {
         canvas.remove(eyes);
