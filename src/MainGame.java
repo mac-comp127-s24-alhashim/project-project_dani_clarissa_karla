@@ -230,7 +230,20 @@ public class MainGame {
     public void changeLegs(int val) {
         canvas.remove(legs);
         legs = new Image(legsList.get(val));
-        // add pos
+        if (val == 1 || val == 2 || val == 5 || val == 6 || val == 7) {
+            legs.setMaxHeight(eyes.getImageHeight() / 2.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else if (val == 3 || val == 4) {
+            legs.setMaxHeight(eyes.getImageHeight() / 3.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 3.5);
+        }
+        if (val == 4) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 110);
+        } else if (val == 7) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 150);
+        } else {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 170);
+        }
         canvas.add(legs);
     }
 
