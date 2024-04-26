@@ -223,7 +223,27 @@ public class MainGame {
     public void changeArms(int val) {
         canvas.remove(arms);
         arms = new Image(armsList.get(val));
-        // add pos
+        if (val == 1) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 260);
+        } else if (val == 2 || val == 7) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 2.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 15, CANVAS_HEIGHT - 240);
+        } else if (val == 3) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2);
+            arms.setMaxWidth(eyes.getImageWidth() / 2);
+            arms.setCenter((CANVAS_WIDTH / 2), CANVAS_HEIGHT - 240);
+        } else if (val == 4 || val == 5) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.6);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.6);
+            arms.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 260);
+        } else if (val == 6) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.5);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.5);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 220);
+        }
         canvas.add(arms);
     }
 
