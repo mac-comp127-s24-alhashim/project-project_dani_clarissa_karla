@@ -197,18 +197,25 @@ public class MainGame {
         switch (val) {
             case 1:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
+                break;
             case 2:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 390);
+                break;
             case 3:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 370);
+                break;
             case 4:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 340);
+                break;
             case 5:
                 ears.setCenter((CANVAS_WIDTH / 2) + 20, CANVAS_HEIGHT - 380);
+                break;
             case 6:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 380);
+                break;
             case 7:
                 ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 345);
+                break;
         }
         canvas.add(ears);
     }

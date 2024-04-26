@@ -69,6 +69,8 @@ public class TestImages {
 
 
     public void characterCreator(CanvasWindow canvas) {
+
+
         canvas.removeAll();
 
         canvas.add(body);
@@ -79,9 +81,10 @@ public class TestImages {
         changeMouth(7);
         canvas.add(accessories);
         canvas.add(arms);
+        changeArms(2);
         canvas.add(legs);
         canvas.add(ears);
-        changeEars(7);
+        changeEars(3);
         canvas.add(nose);
         changeNose(5);
     }
@@ -111,13 +114,27 @@ public class TestImages {
             ears.setMaxWidth(eyes.getImageWidth() / 2);
         }
         switch (val) {
-            case 1: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
-            case 2: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 390);
-            case 3: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 370);
-            case 4: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 340);
-            case 5: ears.setCenter((CANVAS_WIDTH / 2) + 20, CANVAS_HEIGHT - 380);
-            case 6: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 380);
-            case 7: ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 345);
+            case 1:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 350);
+                break;
+            case 2:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 390);
+                break;
+            case 3:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 370);
+                break;
+            case 4:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 340);
+                break;
+            case 5:
+                ears.setCenter((CANVAS_WIDTH / 2) + 20, CANVAS_HEIGHT - 380);
+                break;
+            case 6:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 380);
+                break;
+            case 7:
+                ears.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 345);
+                break;
         }
         canvas.add(ears);
     }
@@ -125,7 +142,9 @@ public class TestImages {
     public void changeArms(int val) {
         canvas.remove(arms);
         arms = new Image(armsList.get(val));
-        // add pos
+        arms.setMaxHeight(eyes.getImageHeight() / 3);
+        arms.setMaxWidth(eyes.getImageWidth() / 3);
+        arms.setCenter((CANVAS_WIDTH / 2)+10, CANVAS_HEIGHT - 250);
         canvas.add(arms);
     }
 
