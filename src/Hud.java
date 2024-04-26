@@ -13,9 +13,11 @@ import java.awt.Color;
  * Creates a HUD window with a specific number of buttons
  */
 public class Hud extends GraphicsGroup {
+    
     public Hud(String type, int num, MainGame mainGame){
         GraphicsGroup graphicsGroup = new GraphicsGroup();
         CanvasWindow canvas = mainGame.canvas;
+        Image eye_parts = new Image("Eyes\\Eyes-01.png");
         if (type == "Color"){
             //fix colors
             
@@ -80,7 +82,34 @@ public class Hud extends GraphicsGroup {
         // });
 
         }
-        else if (type == ""){
+        else if (type == "Ears"){
+            GraphicsGroup graphicsGroup2 = new GraphicsGroup();
+
+            Rectangle outerbox = new Rectangle(50, 90, 275, 150);
+            outerbox.setFillColor(new Color(255, 111, 0));
+            outerbox.setStroked(true);
+            graphicsGroup2.add(outerbox);
+            
+            GraphicsText boxText2 = new GraphicsText("Eyes");
+            boxText2.setFont("Times New Roman", FontStyle.PLAIN, 25);
+            boxText2.setCenter(175,125);
+            graphicsGroup2.add(boxText2);
+
+            Button eyes1 = new Button("Eyes-01", 40, 40);
+            eyes1.setPosition(70, 150);
+            graphicsGroup2.add(eyes1);
+
+            eyes1.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-01.png");
+                canvas.add(part);
+            });
+
+            //eyes1.onClick(() -> {
+                //MainGame.mainGame.remove(eye_parts);
+                //Image part = new Image("Eyes\\Eyes-02.png");
+                //MainGame.mainGame.add(part);
+            //});
 
         }
 
