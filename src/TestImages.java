@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
@@ -13,6 +14,7 @@ import edu.macalester.graphics.Rectangle;
 import SizableButton.*;
 import java.awt.Color;
 import java.io.File;
+import java.util.random.*;
 
 
 public class TestImages {
@@ -67,6 +69,12 @@ public class TestImages {
         characterCreator(canvas);
     }
 
+    private int randomGen(int num) {
+        Random rand = new Random();
+        int randomValue = rand.nextInt(num) + 1;
+        return randomValue;
+    }
+
 
     public void characterCreator(CanvasWindow canvas) {
 
@@ -74,20 +82,20 @@ public class TestImages {
         canvas.removeAll();
 
         canvas.add(body);
-        changeBody(3);
+        changeBody(randomGen(7));
         canvas.add(eyes);
-        changeEyes(4);
+        changeEyes(randomGen(7));
         canvas.add(mouth);
-        changeMouth(7);
+        changeMouth(randomGen(7));
         canvas.add(accessories);
         canvas.add(arms);
-        changeArms(7);
+        changeArms(randomGen(7));
         canvas.add(legs);
-        changeLegs(7);
+        changeLegs(randomGen(7));
         canvas.add(ears);
-        changeEars(3);
+        changeEars(randomGen(7));
         canvas.add(nose);
-        changeNose(5);
+        changeNose(randomGen(6));
     }
 
     public void changeBody(int val) {

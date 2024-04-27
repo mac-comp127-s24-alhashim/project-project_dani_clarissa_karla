@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
@@ -95,7 +96,6 @@ public class MainGame {
         oldMainButton.setClear();
         canvas.add(oldMainButton);
 
-        // canvas.onClick(e -> System.out.print(e.getPosition()));
 
         oldMainButton.onClick(() -> {
             // backgroundChoice = oldMainBackground;
@@ -155,6 +155,28 @@ public class MainGame {
     public void characterCreator(CanvasWindow canvas) {
         canvas.removeAll();
 
+        Button randomButton = new Button("Random", 70, 70);
+        randomButton.setCenter(CANVAS_WIDTH - 170, CANVAS_HEIGHT - 70);
+        randomButton.setFillColor(new Color(255, 150, 190));
+        randomButton.setLineColor(Color.white);
+        canvas.add(randomButton);
+
+        randomButton.onClick(() -> {
+            random();
+        });
+
+        Button doneButton = new Button("Done", 70, 70);
+        doneButton.setCenter(CANVAS_WIDTH - 80, CANVAS_HEIGHT - 70);
+        doneButton.setFillColor(new Color(50, 180, 180));
+        doneButton.setLineColor(Color.white);
+        canvas.add(doneButton);
+
+        doneButton.onClick(() -> {
+
+        });
+
+        // canvas.onClick(e -> System.out.print(e.getPosition()));
+
         Hud bodyHud = new Hud("Color", 7, this);
         canvas.add(bodyHud);
 
@@ -168,6 +190,22 @@ public class MainGame {
         canvas.add(nose);
 
 
+    }
+
+    private void random() {
+        changeBody(randomGen(7));
+        changeEyes(randomGen(7));
+        changeMouth(randomGen(7));
+        changeArms(randomGen(7));
+        changeLegs(randomGen(7));
+        changeEars(randomGen(7));
+        changeNose(randomGen(6));
+    }
+
+    private int randomGen(int num) {
+        Random rand = new Random();
+        int randomValue = rand.nextInt(num) + 1;
+        return randomValue;
     }
 
     public void changeBody(int val) {
