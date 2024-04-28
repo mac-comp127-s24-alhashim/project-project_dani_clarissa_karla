@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
@@ -95,7 +96,6 @@ public class MainGame {
         oldMainButton.setClear();
         canvas.add(oldMainButton);
 
-        // canvas.onClick(e -> System.out.print(e.getPosition()));
 
         oldMainButton.onClick(() -> {
             // backgroundChoice = oldMainBackground;
@@ -155,6 +155,28 @@ public class MainGame {
     public void characterCreator(CanvasWindow canvas) {
         canvas.removeAll();
 
+        Button randomButton = new Button("Random", 70, 70);
+        randomButton.setCenter(CANVAS_WIDTH - 170, CANVAS_HEIGHT - 70);
+        randomButton.setFillColor(new Color(255, 150, 190));
+        randomButton.setLineColor(Color.white);
+        canvas.add(randomButton);
+
+        randomButton.onClick(() -> {
+            random();
+        });
+
+        Button doneButton = new Button("Done", 70, 70);
+        doneButton.setCenter(CANVAS_WIDTH - 80, CANVAS_HEIGHT - 70);
+        doneButton.setFillColor(new Color(50, 180, 180));
+        doneButton.setLineColor(Color.white);
+        canvas.add(doneButton);
+
+        doneButton.onClick(() -> {
+
+        });
+
+        // canvas.onClick(e -> System.out.print(e.getPosition()));
+
         Hud bodyHud = new Hud("Color", 7, this);
         canvas.add(bodyHud);
 
@@ -168,6 +190,22 @@ public class MainGame {
         canvas.add(nose);
 
 
+    }
+
+    private void random() {
+        changeBody(randomGen(7));
+        changeEyes(randomGen(7));
+        changeMouth(randomGen(7));
+        changeArms(randomGen(7));
+        changeLegs(randomGen(7));
+        changeEars(randomGen(7));
+        changeNose(randomGen(6));
+    }
+
+    private int randomGen(int num) {
+        Random rand = new Random();
+        int randomValue = rand.nextInt(num) + 1;
+        return randomValue;
     }
 
     public void changeBody(int val) {
@@ -223,14 +261,47 @@ public class MainGame {
     public void changeArms(int val) {
         canvas.remove(arms);
         arms = new Image(armsList.get(val));
-        // add pos
+        if (val == 1) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 260);
+        } else if (val == 2 || val == 7) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 2.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 15, CANVAS_HEIGHT - 240);
+        } else if (val == 3) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2);
+            arms.setMaxWidth(eyes.getImageWidth() / 2);
+            arms.setCenter((CANVAS_WIDTH / 2), CANVAS_HEIGHT - 240);
+        } else if (val == 4 || val == 5) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.6);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.6);
+            arms.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 260);
+        } else if (val == 6) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.5);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.5);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 220);
+        }
         canvas.add(arms);
     }
 
     public void changeLegs(int val) {
         canvas.remove(legs);
         legs = new Image(legsList.get(val));
-        // add pos
+        if (val == 1 || val == 2 || val == 5 || val == 6 || val == 7) {
+            legs.setMaxHeight(eyes.getImageHeight() / 2.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else if (val == 3 || val == 4) {
+            legs.setMaxHeight(eyes.getImageHeight() / 3.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 3.5);
+        }
+        if (val == 4) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 110);
+        } else if (val == 7) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 150);
+        } else {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 170);
+        }
         canvas.add(legs);
     }
 

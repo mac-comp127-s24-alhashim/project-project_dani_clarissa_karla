@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
@@ -13,6 +14,7 @@ import edu.macalester.graphics.Rectangle;
 import SizableButton.*;
 import java.awt.Color;
 import java.io.File;
+import java.util.random.*;
 
 
 public class TestImages {
@@ -67,6 +69,12 @@ public class TestImages {
         characterCreator(canvas);
     }
 
+    private int randomGen(int num) {
+        Random rand = new Random();
+        int randomValue = rand.nextInt(num) + 1;
+        return randomValue;
+    }
+
 
     public void characterCreator(CanvasWindow canvas) {
 
@@ -74,19 +82,20 @@ public class TestImages {
         canvas.removeAll();
 
         canvas.add(body);
-        changeBody(3);
+        changeBody(randomGen(7));
         canvas.add(eyes);
-        changeEyes(4);
+        changeEyes(randomGen(7));
         canvas.add(mouth);
-        changeMouth(7);
+        changeMouth(randomGen(7));
         canvas.add(accessories);
         canvas.add(arms);
-        changeArms(2);
+        changeArms(randomGen(7));
         canvas.add(legs);
+        changeLegs(randomGen(7));
         canvas.add(ears);
-        changeEars(3);
+        changeEars(randomGen(7));
         canvas.add(nose);
-        changeNose(5);
+        changeNose(randomGen(6));
     }
 
     public void changeBody(int val) {
@@ -142,16 +151,47 @@ public class TestImages {
     public void changeArms(int val) {
         canvas.remove(arms);
         arms = new Image(armsList.get(val));
-        arms.setMaxHeight(eyes.getImageHeight() / 3);
-        arms.setMaxWidth(eyes.getImageWidth() / 3);
-        arms.setCenter((CANVAS_WIDTH / 2)+10, CANVAS_HEIGHT - 250);
+        if (val == 1) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 260);
+        } else if (val == 2 || val == 7) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2.1);
+            arms.setMaxWidth(eyes.getImageWidth() / 2.1);
+            arms.setCenter((CANVAS_WIDTH / 2) + 15, CANVAS_HEIGHT - 240);
+        } else if (val == 3) {
+            arms.setMaxHeight(eyes.getImageHeight() / 2);
+            arms.setMaxWidth(eyes.getImageWidth() / 2);
+            arms.setCenter((CANVAS_WIDTH / 2), CANVAS_HEIGHT - 240);
+        } else if (val == 4 || val == 5) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.6);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.6);
+            arms.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 260);
+        } else if (val == 6) {
+            arms.setMaxHeight(eyes.getImageHeight() / 1.5);
+            arms.setMaxWidth(eyes.getImageWidth() / 1.5);
+            arms.setCenter((CANVAS_WIDTH / 2) + 40, CANVAS_HEIGHT - 220);
+        }
         canvas.add(arms);
     }
 
     public void changeLegs(int val) {
         canvas.remove(legs);
         legs = new Image(legsList.get(val));
-        // add pos
+        if (val == 1 || val == 2 || val == 5 || val == 6 || val == 7) {
+            legs.setMaxHeight(eyes.getImageHeight() / 2.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else if (val == 3 || val == 4) {
+            legs.setMaxHeight(eyes.getImageHeight() / 3.5);
+            legs.setMaxWidth(eyes.getImageWidth() / 3.5);
+        }
+        if (val == 4) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 110);
+        } else if (val == 7) {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 150);
+        } else {
+            legs.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 170);
+        }
         canvas.add(legs);
     }
 
