@@ -23,15 +23,15 @@ public class MainGame {
     private String backgroundChoice;
 
 
-    private List<String> bodyList;
-    private List<String> eyesList;
-    private List<String> mouthList;
-    private List<String> accessoriesList;
-    private List<String> armsList;
-    private List<String> legsList;
-    private List<String> earsList;
-    private List<String> noseList;
-    private List<String> buildingList;
+    public List<String> bodyList;
+    public List<String> eyesList;
+    public List<String> mouthList;
+    public List<String> accessoriesList;
+    public List<String> armsList;
+    public List<String> legsList;
+    public List<String> earsList;
+    public List<String> noseList;
+    public List<String> buildingList;
 
     private Image body = new Image("");
     private Image eyes = new Image("");
@@ -177,7 +177,7 @@ public class MainGame {
 
         // canvas.onClick(e -> System.out.print(e.getPosition()));
 
-        Hud bodyHud = new Hud("Color", 7, this);
+        Hud bodyHud = new Hud("Color", 7, this, 70, 150);
         canvas.add(bodyHud);
 
         canvas.add(body);
