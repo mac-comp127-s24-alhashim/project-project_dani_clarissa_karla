@@ -116,23 +116,21 @@ public class Hud extends GraphicsGroup {
             });
 
         } else {
-            GraphicsGroup graphicsGroup2 = new GraphicsGroup();
 
             Rectangle outerbox = new Rectangle(posX, posY, 275, 150);
             outerbox.setFillColor(new Color(255, 111, 0));
             outerbox.setStroked(true);
-            graphicsGroup2.add(outerbox);
+            graphicsGroup.add(outerbox);
 
-            GraphicsText boxText2 = new GraphicsText(type);
-            boxText2.setFont("Times New Roman", FontStyle.PLAIN, 25);
-            boxText2.setCenter(outerbox.getCenter());
-            graphicsGroup.add(boxText2);
+            GraphicsText boxText = new GraphicsText(type);
+            boxText.setFont("Times New Roman", FontStyle.PLAIN, 25);
+            boxText.setCenter(outerbox.getCenter());
+            graphicsGroup.add(boxText);
 
             String valString;
-            int currentVal;
             for (int i = 1; i <= num; i++) {
                 valString = "" + i;
-                currentVal = i;
+                int currentVal = i;
 
                 Button button = new Button(valString, 40, 40);
                 graphicsGroup.add(button);
@@ -170,5 +168,6 @@ public class Hud extends GraphicsGroup {
                 posX += 20;
             }
         }
+        canvas.add(graphicsGroup);
     }
 }

@@ -179,6 +179,9 @@ public class MainGame {
 
         Hud bodyHud = new Hud("Color", 7, this, 70, 150);
         canvas.add(bodyHud);
+        Hud armHud = new Hud("Arms", 7, this, 70, 300);
+        canvas.add(armHud);
+        //add others
 
         canvas.add(body);
         canvas.add(eyes);
