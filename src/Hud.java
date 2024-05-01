@@ -19,22 +19,22 @@ public class Hud extends GraphicsGroup {
         CanvasWindow canvas = mainGame.canvas;
 
         if (type == "Color") {
-            // fix colors
+            int original = posX;
 
-            Rectangle outerbox = new Rectangle(posX, posY, 275, 150);
-            outerbox.setFillColor(new Color(255, 111, 0));
+            Rectangle outerbox = new Rectangle(posX, posY, 250, 150);
+            outerbox.setFillColor(new Color(60, 180, 170));
             outerbox.setStroked(true);
             graphicsGroup.add(outerbox);
 
-            GraphicsText boxText1 = new GraphicsText("Colors");
+            GraphicsText boxText1 = new GraphicsText("Body");
             boxText1.setFont("Times New Roman", FontStyle.PLAIN, 25);
-            boxText1.setCenter(175, 125);
+            boxText1.setCenter(outerbox.getCenter());
             graphicsGroup.add(boxText1);
 
             Button color1 = new Button("", 40, 40);
-            color1.setPosition(posX + (1 * 40), posY);
+            color1.setPosition(posX + 30, posY + 20);
             color1.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color1);
 
             posX += 20;
@@ -44,9 +44,9 @@ public class Hud extends GraphicsGroup {
             });
 
             Button color2 = new Button("", 40, 40);
-            color2.setFillColor(Color.RED);
-            // color2.setLineColor(Color.RED);
-            color2.setPosition(posX + (2 * 40), posY);
+            color2.setFillColor(new Color(140, 158, 255));
+            color2.setLineColor(new Color(140, 158, 255));
+            color2.setPosition(posX + (2 * 30), posY + 20);
             graphicsGroup.add(color2);
 
             posX += 20;
@@ -55,10 +55,10 @@ public class Hud extends GraphicsGroup {
                 mainGame.changeBody(2);
             });
 
-            Button color3 = new Button("green", 40, 40);
-            color3.setPosition(posX + (3 * 40), posY);
+            Button color3 = new Button("", 40, 40);
+            color3.setPosition(posX + (3 * 30), posY + 20);
             color3.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            // color3.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color3);
 
             posX += 20;
@@ -67,49 +67,48 @@ public class Hud extends GraphicsGroup {
                 mainGame.changeBody(3);
             });
 
-            Button color4 = new Button("pink", 40, 40);
-            color4.setPosition(posX + (4 * 40), posY);
+            Button color4 = new Button("", 40, 40);
+            color4.setPosition(posX + (4 * 30), posY + 20);
             color4.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            // color4.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color4);
 
-            posX += 20;
 
             color4.onClick(() -> {
                 mainGame.changeBody(4);
             });
 
-            Button color5 = new Button("purple", 40, 40);
-            color5.setPosition(posX + (1 * 40), posY + 40);
+            posX -= 70;
+
+            Button color5 = new Button("", 40, 40);
+            color5.setPosition(original + (1 * 30), posY + 90);
             color5.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            // color5.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color5);
 
-            posX += 20;
+            original += 20;
 
             color5.onClick(() -> {
                 mainGame.changeBody(5);
             });
 
-            Button color6 = new Button("purple", 40, 40);
-            color6.setPosition(posX + (2 * 40), posY + 40);
+            Button color6 = new Button("", 40, 40);
+            color6.setPosition(original + (2 * 30), posY + 90);
             color6.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            // color6.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color6);
 
-            posX += 20;
+            original += 20;
 
             color6.onClick(() -> {
                 mainGame.changeBody(6);
             });
 
-            Button color7 = new Button("purple", 40, 40);
-            color7.setPosition(posX + (3 * 40), posY + 40);
+            Button color7 = new Button("", 40, 40);
+            color7.setPosition(original + (3 * 30), posY + 90);
             color7.setFillColor(new Color(140, 158, 255));
-            // color1.setLineColor(new Color(140, 158, 255));
+            // color7.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color7);
-
-            posX += 20;
 
             color7.onClick(() -> {
                 mainGame.changeBody(7);
@@ -117,8 +116,8 @@ public class Hud extends GraphicsGroup {
 
         } else {
 
-            Rectangle outerbox = new Rectangle(posX, posY, 275, 150);
-            outerbox.setFillColor(new Color(255, 111, 0));
+            Rectangle outerbox = new Rectangle(posX, posY, 250, 150);
+            outerbox.setFillColor(new Color(60, 180, 170));
             outerbox.setStroked(true);
             graphicsGroup.add(outerbox);
 
@@ -133,6 +132,8 @@ public class Hud extends GraphicsGroup {
                 int currentVal = i;
 
                 Button button = new Button(valString, 40, 40);
+                button.setFillColor(new Color(255, 150, 190));
+                button.setLineColor(Color.WHITE);
                 graphicsGroup.add(button);
 
                 button.onClick(() -> {
@@ -149,10 +150,10 @@ public class Hud extends GraphicsGroup {
                         case "Legs":
                             mainGame.changeLegs(currentVal);
                             break;
-                        case "Mouth":
+                        case "Mouths":
                             mainGame.changeMouth(currentVal);
                             break;
-                        case "Nose":
+                        case "Noses":
                             mainGame.changeNose(currentVal);
                             break;
                         case "Accessories":
@@ -160,10 +161,10 @@ public class Hud extends GraphicsGroup {
                             break;
                     }
                 });
-                if (i >= 4) {
-                    button.setPosition(posX + (i * 40), posY);
+                if (i <= 4) {
+                    button.setPosition(posX + (i * 30), posY + 20);
                 } else {
-                    button.setPosition(posX - 80 + ((i - 4) * 40), posY);
+                    button.setPosition(posX - 80 + ((i - 4) * 30), posY + 90);
                 }
                 posX += 20;
             }

@@ -77,25 +77,36 @@ public class TestImages {
 
 
     public void characterCreator(CanvasWindow canvas) {
-
-
         canvas.removeAll();
 
         canvas.add(body);
-        changeBody(randomGen(7));
+        // changeBody(randomGen(7));
         canvas.add(eyes);
-        changeEyes(randomGen(7));
+        // changeEyes(randomGen(7));
         canvas.add(mouth);
-        changeMouth(randomGen(7));
+        // changeMouth(randomGen(7));
         canvas.add(accessories);
+        // changeAccessories(4);
         canvas.add(arms);
-        changeArms(randomGen(7));
+        // changeArms(randomGen(7));
         canvas.add(legs);
-        changeLegs(randomGen(7));
+        // changeLegs(randomGen(7));
         canvas.add(ears);
-        changeEars(randomGen(7));
+        // changeEars(randomGen(7));
         canvas.add(nose);
+        // changeNose(randomGen(6));
+        random();
+    }
+
+    private void random() {
+        changeBody(randomGen(7));
+        changeEyes(randomGen(7));
+        changeMouth(randomGen(7));
+        changeArms(randomGen(7));
+        changeLegs(randomGen(7));
+        changeEars(randomGen(7));
         changeNose(randomGen(6));
+        changeAccessories(randomGen(5));
     }
 
     public void changeBody(int val) {
@@ -207,13 +218,15 @@ public class TestImages {
     public void changeAccessories(int val) {
         canvas.remove(accessories);
         accessories = new Image(accessoriesList.get(val));
-        if (val == 1 || val == 2 || val == 5 ) {
+        if (val != 4) {
             accessories.setMaxHeight(eyes.getImageHeight() / 2.5);
             accessories.setMaxWidth(eyes.getImageWidth() / 2.5);
-        } else if (val == 3 || val == 4) {
-            accessories.setMaxHeight(eyes.getImageHeight() / 3.5);
-            accessories.setMaxWidth(eyes.getImageWidth() / 3.5);
+        } else if (val == 4) {
+            accessories.setMaxHeight(eyes.getImageHeight() / 2);
+            accessories.setMaxWidth(eyes.getImageWidth() / 2);
         }
+        accessories.setCenter((CANVAS_WIDTH / 2) + 230, CANVAS_HEIGHT - 150);
+        canvas.add(accessories);
     }
 
     public void changeMouth(int val) {

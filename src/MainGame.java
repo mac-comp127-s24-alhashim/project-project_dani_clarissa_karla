@@ -17,11 +17,9 @@ import java.io.File;
 
 public class MainGame {
 
-    private String creatureName;
     public CanvasWindow canvas;
 
     private String backgroundChoice;
-
 
     public List<String> bodyList;
     public List<String> eyesList;
@@ -57,7 +55,6 @@ public class MainGame {
         legsList = readFolder("res/Body Parts/Legs");
         earsList = readFolder("res/Body Parts/Ears");
         noseList = readFolder("res/Body Parts/Noses");
-
 
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsText startText = new GraphicsText("Create a Mascot!");
@@ -172,26 +169,36 @@ public class MainGame {
         canvas.add(doneButton);
 
         doneButton.onClick(() -> {
-
+            done();
         });
 
-        // canvas.onClick(e -> System.out.print(e.getPosition()));
-
-        Hud bodyHud = new Hud("Color", 7, this, 70, 150);
+        Hud bodyHud = new Hud("Color", 7, this, 25, 50);
         canvas.add(bodyHud);
-        Hud armHud = new Hud("Arms", 7, this, 70, 300);
+        Hud armHud = new Hud("Arms", 7, this, 25, 200);
         canvas.add(armHud);
-        //add others
+        Hud earHud = new Hud("Ears", 7, this, 25, 350);
+        canvas.add(earHud);
+        Hud eyeHud = new Hud("Eyes", 7, this, 25, 500);
+        canvas.add(eyeHud);
+        Hud legHud = new Hud("Legs", 7, this, 700, 350);
+        canvas.add(legHud);
+        Hud mouthHud = new Hud("Mouths", 7, this, 700, 50);
+        canvas.add(mouthHud);
+        Hud noseHud = new Hud("Noses", 6, this, 700, 200);
+        canvas.add(noseHud);
+        Hud accessoriesHud = new Hud("Accessories", 5, this, 370, 50);
+        canvas.add(accessoriesHud);
 
         canvas.add(body);
         canvas.add(eyes);
         canvas.add(mouth);
-        canvas.add(accessories);
         canvas.add(arms);
+        canvas.add(accessories);
         canvas.add(legs);
         canvas.add(ears);
         canvas.add(nose);
 
+        random();
 
     }
 
@@ -203,6 +210,20 @@ public class MainGame {
         changeLegs(randomGen(7));
         changeEars(randomGen(7));
         changeNose(randomGen(6));
+        changeAccessories(randomGen(5));
+    }
+
+    private void done(){
+        canvas.removeAll();
+        // canvas.add(backgroundChoice);
+        canvas.add(body);
+        canvas.add(eyes);
+        canvas.add(mouth);
+        canvas.add(arms);
+        canvas.add(accessories);
+        canvas.add(legs);
+        canvas.add(ears);
+        canvas.add(nose);
     }
 
     private int randomGen(int num) {
@@ -213,9 +234,23 @@ public class MainGame {
 
     public void changeBody(int val) {
         canvas.remove(body);
+        canvas.remove(eyes);
+        canvas.remove(mouth);
+        canvas.remove(arms);
+        canvas.remove(accessories);
+        canvas.remove(legs);
+        canvas.remove(ears);
+        canvas.remove(nose);
         body = new Image(bodyList.get(val));
         body.setCenter((CANVAS_WIDTH / 2) - 50, CANVAS_HEIGHT - 300);
         canvas.add(body);
+        canvas.add(eyes);
+        canvas.add(mouth);
+        canvas.add(arms);
+        canvas.add(accessories);
+        canvas.add(legs);
+        canvas.add(ears);
+        canvas.add(nose);
     }
 
     public void changeEars(int val) {
@@ -320,7 +355,14 @@ public class MainGame {
     public void changeAccessories(int val) {
         canvas.remove(accessories);
         accessories = new Image(accessoriesList.get(val));
-        // add pos
+        if (val != 4) {
+            accessories.setMaxHeight(eyes.getImageHeight() / 2.5);
+            accessories.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else if (val == 4) {
+            accessories.setMaxHeight(eyes.getImageHeight() / 2);
+            accessories.setMaxWidth(eyes.getImageWidth() / 2);
+        }
+        accessories.setCenter((CANVAS_WIDTH / 2) + 230, CANVAS_HEIGHT - 150);
         canvas.add(accessories);
     }
 
@@ -370,7 +412,6 @@ public class MainGame {
 
     public static void main(String[] args) {
         MainGame mainGame = new MainGame();
-        System.out.println(readFolder("res/Buildings"));
     }
 
 }
