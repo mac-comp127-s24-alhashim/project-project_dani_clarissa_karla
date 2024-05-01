@@ -207,8 +207,13 @@ public class TestImages {
     public void changeAccessories(int val) {
         canvas.remove(accessories);
         accessories = new Image(accessoriesList.get(val));
-        // add pos
-        canvas.add(accessories);
+        if (val == 1 || val == 2 || val == 5 ) {
+            accessories.setMaxHeight(eyes.getImageHeight() / 2.5);
+            accessories.setMaxWidth(eyes.getImageWidth() / 2.5);
+        } else if (val == 3 || val == 4) {
+            accessories.setMaxHeight(eyes.getImageHeight() / 3.5);
+            accessories.setMaxWidth(eyes.getImageWidth() / 3.5);
+        }
     }
 
     public void changeMouth(int val) {
@@ -241,6 +246,11 @@ public class TestImages {
         nose.setCenter((CANVAS_WIDTH / 2) + 10, CANVAS_HEIGHT - 255);
         canvas.add(nose);
     }
+
+
+    // canvas.onClick(e -> System.out.print(e.getPosition()));
+
+    
 
     public static List<String> readFolder(String folderName) {
         List<String> folderList = new ArrayList<>();
