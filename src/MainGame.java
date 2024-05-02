@@ -19,6 +19,7 @@ public class MainGame {
 
     public CanvasWindow canvas;
 
+    private List<String> backgroundList;
     private String backgroundChoice;
 
     public List<String> bodyList;
@@ -57,13 +58,14 @@ public class MainGame {
         noseList = readFolder("res/Body Parts/Noses");
 
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
-        GraphicsText startText = new GraphicsText("Create a Mascot!");
-        startText.setFont("Times New Roman", FontStyle.BOLD, 50);
-        startText.setCenter(CANVAS_WIDTH / 2, 100);
-        canvas.add(startText);
+
+        List<String> logoList = readFolder("res/Logo");
+        Image gameLogo = new Image(logoList.get(1));
+        gameLogo.setCenter(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        canvas.add(gameLogo);
 
         Button startButton = new Button("Start", 100, 40);
-        startButton.setCenter(CANVAS_WIDTH / 2, 500);
+        startButton.setCenter(CANVAS_WIDTH / 2, 700);
         startButton.setFillColor(new Color(255, 115, 190));
         startButton.setLineColor(new Color(255, 105, 180));
         canvas.add(startButton);
@@ -71,7 +73,7 @@ public class MainGame {
         Rectangle buttonBack = new Rectangle(0, 0, 115, 55);
         buttonBack.setFillColor(new Color(255, 20, 147));
         buttonBack.setStroked(false);
-        buttonBack.setCenter(CANVAS_WIDTH / 2, 500);
+        buttonBack.setCenter(CANVAS_WIDTH / 2, 700);
         canvas.add(buttonBack);
 
         startButton.onClick(() -> {
@@ -80,6 +82,8 @@ public class MainGame {
     }
 
     public void buildingSelection(CanvasWindow canvas) {
+        backgroundList = readFolder("res/Backgrounds");
+
         canvas.removeAll();
         buildingList = readFolder("res/Buildings");
 
@@ -95,7 +99,7 @@ public class MainGame {
 
 
         oldMainButton.onClick(() -> {
-            // backgroundChoice = oldMainBackground;
+            backgroundChoice = backgroundList.get(1);
             characterCreator(canvas);
         });
 
@@ -111,7 +115,7 @@ public class MainGame {
         canvas.add(jwallButton);
 
         jwallButton.onClick(() -> {
-            // backgroundChoice = jwallBackground;
+            backgroundChoice = backgroundList.get(2);
             characterCreator(canvas);
         });
 
@@ -127,7 +131,7 @@ public class MainGame {
         canvas.add(carnegieButton);
 
         carnegieButton.onClick(() -> {
-            // backgroundChoice = carnegieBackground;
+            backgroundChoice = backgroundList.get(4);
             characterCreator(canvas);
         });
 
@@ -143,7 +147,7 @@ public class MainGame {
         canvas.add(olriButton);
 
         olriButton.onClick(() -> {
-            // backgroundChoice = olriBackground;
+            backgroundChoice = backgroundList.get(3);
             characterCreator(canvas);
         });
 
@@ -151,6 +155,12 @@ public class MainGame {
 
     public void characterCreator(CanvasWindow canvas) {
         canvas.removeAll();
+
+        Image background = new Image(backgroundChoice);
+        background.setMaxHeight(CANVAS_HEIGHT);
+        background.setMaxWidth(CANVAS_WIDTH);
+        background.setCenter(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        canvas.add(background);
 
         Button randomButton = new Button("Random", 70, 70);
         randomButton.setCenter(CANVAS_WIDTH - 170, CANVAS_HEIGHT - 70);
@@ -215,7 +225,11 @@ public class MainGame {
 
     private void done(){
         canvas.removeAll();
-        // canvas.add(backgroundChoice);
+        Image background = new Image(backgroundChoice);
+        background.setMaxHeight(CANVAS_HEIGHT);
+        background.setMaxWidth(CANVAS_WIDTH);
+        background.setCenter(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+        canvas.add(background);
         canvas.add(body);
         canvas.add(eyes);
         canvas.add(mouth);
