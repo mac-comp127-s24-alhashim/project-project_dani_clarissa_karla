@@ -1,12 +1,13 @@
 # Department Mascot Customizer
 
-Team Members: 
--
-Dani, Clarissa, and Karla
 
-Team Name: 
+Team: 
 -
 DCK
+
+![Logo](res/Logo/Game-Logo.png)
+
+Dani Arana, Clarissa Sigale, Karla Martinez
 
 Overall Description:
 -
@@ -28,10 +29,16 @@ The following diagram shows how Mascot Generator works:
 
 (insert diagram)
 
-1.The user opens the game and is greeted with the game logo and a start button that will take them to another screen. The canvas clears when the user clicks on the start button. This is done by an on-click event lambda. 
-2.The user then is able to see a screen with four images. The four images represent the four main academic buildings at Macalester College. Clicking on any of them will clear the screen again and trigger an event that shows the user a different screen. 
-3.The new screen built by this event contains more graphics elements that are triggered by different buttons. 
-4.There are 
+1. The user opens the game and is greeted with the game logo and a start button that will take them to another screen. The canvas clears when the user clicks on the start button. This is done by an on-click event lambda. 
+![Start Screen](res/Logo/GameStartScreen.png)
+
+2. The user then is able to see a screen with four images. The four images represent the four main academic buildings at Macalester College. Clicking on any of them will clear the screen again and trigger an event that shows the user a different screen. 
+![Buildings Screen](res/Logo/BuildingChoices.png)
+3. The new screen built by this event contains more graphics elements that are triggered by different buttons. 
+![Sample inside building screen](res/Logo/SampleBuildingScr.png)
+4. There are 
+
+
 
 
 UML CLASS DIAGRAM:
