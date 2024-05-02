@@ -13,162 +13,183 @@ import java.awt.Color;
  * Creates a HUD window with a specific number of buttons
  */
 public class Hud extends GraphicsGroup {
-
-    public Hud(String type, int num, MainGame mainGame, int posX, int posY) {
+    
+    public Hud(String type, int num, MainGame mainGame){
         GraphicsGroup graphicsGroup = new GraphicsGroup();
         CanvasWindow canvas = mainGame.canvas;
-
-        if (type == "Color") {
-            int original = posX;
-
-            Rectangle outerbox = new Rectangle(posX, posY, 250, 150);
-            outerbox.setFillColor(new Color(60, 180, 170));
+        Image eye_parts = new Image("Eyes\\Eyes-01.png");
+        if (type == "Color"){
+            //fix colors
+            
+            Rectangle outerbox = new Rectangle(50, 90, 275, 150);
+            outerbox.setFillColor(new Color(255, 111, 0));
             outerbox.setStroked(true);
             graphicsGroup.add(outerbox);
 
-            GraphicsText boxText1 = new GraphicsText("Body");
+            GraphicsText boxText1 = new GraphicsText("Colors");
             boxText1.setFont("Times New Roman", FontStyle.PLAIN, 25);
-            boxText1.setCenter(outerbox.getCenter());
+            boxText1.setCenter(175,125);
             graphicsGroup.add(boxText1);
 
             Button color1 = new Button("", 40, 40);
-            color1.setPosition(posX + 30, posY + 20);
-            color1.setFillColor(new Color(140, 158, 255));
-            color1.setLineColor(new Color(140, 158, 255));
+            color1.setPosition(100, 150);
+            color1.setFillColor(new Color(204, 176, 154));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color1);
-
-            posX += 20;
-
-            color1.onClick(() -> {
-                mainGame.changeBody(1);
-            });
-
-            Button color2 = new Button("", 40, 40);
-            color2.setFillColor(new Color(140, 158, 255));
-            color2.setLineColor(new Color(140, 158, 255));
-            color2.setPosition(posX + (2 * 30), posY + 20);
+            
+        color1.onClick(() -> {
+            
+        });
+            
+        Button color2 = new Button("", 40, 40);
+            color2.setFillColor(new Color(182, 205, 223));
+            // color2.setLineColor(Color.RED);
+            color2.setPosition(150, 150);
             graphicsGroup.add(color2);
+            
+        // color2.onClick(() -> {
+        //     ;
+        // });
 
-            posX += 20;
-
-            color2.onClick(() -> {
-                mainGame.changeBody(2);
-            });
-
-            Button color3 = new Button("", 40, 40);
-            color3.setPosition(posX + (3 * 30), posY + 20);
-            color3.setFillColor(new Color(140, 158, 255));
-            // color3.setLineColor(new Color(140, 158, 255));
+        Button color3 = new Button("", 40, 40);
+            color3.setPosition(200, 150);
+            color3.setFillColor(new Color(247, 206, 214));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color3);
+            
+        // color3.onClick(() -> {
+        //     ;
+        // });
 
-            posX += 20;
-
-            color3.onClick(() -> {
-                mainGame.changeBody(3);
-            });
-
-            Button color4 = new Button("", 40, 40);
-            color4.setPosition(posX + (4 * 30), posY + 20);
-            color4.setFillColor(new Color(140, 158, 255));
-            // color4.setLineColor(new Color(140, 158, 255));
+        Button color4 = new Button("", 40, 40);
+            color4.setPosition(250, 150);
+            color4.setFillColor(new Color(255, 255, 255));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color4);
+            
+        // color4.onClick(() -> {
+        //     ;
+        // });
 
-
-            color4.onClick(() -> {
-                mainGame.changeBody(4);
-            });
-
-            posX -= 70;
-
-            Button color5 = new Button("", 40, 40);
-            color5.setPosition(original + (1 * 30), posY + 90);
-            color5.setFillColor(new Color(140, 158, 255));
-            // color5.setLineColor(new Color(140, 158, 255));
+        Button color5 = new Button("", 40, 40);
+            color5.setPosition(100, 190);
+            color5.setFillColor(new Color(213, 248, 254));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color5);
+            
+        // color5.onClick(() -> {
+        //     ;
+        // });
 
-            original += 20;
-
-            color5.onClick(() -> {
-                mainGame.changeBody(5);
-            });
-
-            Button color6 = new Button("", 40, 40);
-            color6.setPosition(original + (2 * 30), posY + 90);
-            color6.setFillColor(new Color(140, 158, 255));
-            // color6.setLineColor(new Color(140, 158, 255));
+        Button color6 = new Button("", 40, 40);
+            color6.setPosition(150, 190);
+            color6.setFillColor(new Color(182, 162, 161));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color6);
+            
+        // color5.onClick(() -> {
+        //     ;
+        // });
 
-            original += 20;
-
-            color6.onClick(() -> {
-                mainGame.changeBody(6);
-            });
-
-            Button color7 = new Button("", 40, 40);
-            color7.setPosition(original + (3 * 30), posY + 90);
-            color7.setFillColor(new Color(140, 158, 255));
-            // color7.setLineColor(new Color(140, 158, 255));
+        Button color7 = new Button("", 40, 40);
+            color7.setPosition(200, 190);
+            color7.setFillColor(new Color(249, 221, 181));
+            //color1.setLineColor(new Color(140, 158, 255));
             graphicsGroup.add(color7);
+            
+        // color5.onClick(() -> {
+        //     ;
+        // });
 
-            color7.onClick(() -> {
-                mainGame.changeBody(7);
+        }
+        else if (type == "Eyes"){
+            GraphicsGroup graphicsGroup2 = new GraphicsGroup();
+
+            Rectangle outerbox = new Rectangle(50, 90, 275, 150);
+            outerbox.setFillColor(new Color(255, 111, 0));
+            outerbox.setStroked(true);
+            graphicsGroup2.add(outerbox);
+            
+            GraphicsText boxText2 = new GraphicsText("Eyes");
+            boxText2.setFont("Times New Roman", FontStyle.PLAIN, 25);
+            boxText2.setCenter(175,125);
+            graphicsGroup2.add(boxText2);
+
+            Button eyes1 = new Button("Eyes-01", 40, 40);
+            eyes1.setPosition(70, 150);
+            graphicsGroup2.add(eyes1);
+
+            eyes1.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-01.png");
+                canvas.add(part);
             });
 
-        } else {
+            Button eyes2 = new Button("Eyes-02", 40, 40);
+            eyes2.setPosition(70, 150);
+            graphicsGroup2.add(eyes2);
 
-            Rectangle outerbox = new Rectangle(posX, posY, 250, 150);
-            outerbox.setFillColor(new Color(60, 180, 170));
-            outerbox.setStroked(true);
-            graphicsGroup.add(outerbox);
+            eyes2.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-02.png");
+                canvas.add(part);
+            });
 
-            GraphicsText boxText = new GraphicsText(type);
-            boxText.setFont("Times New Roman", FontStyle.PLAIN, 25);
-            boxText.setCenter(outerbox.getCenter());
-            graphicsGroup.add(boxText);
+            Button eyes3 = new Button("Eyes-03", 40, 40);
+            eyes3.setPosition(70, 150);
+            graphicsGroup2.add(eyes3);
 
-            String valString;
-            for (int i = 1; i <= num; i++) {
-                valString = "" + i;
-                int currentVal = i;
+            eyes3.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-03.png");
+                canvas.add(part);
+            });
+            Button eyes4 = new Button("Eyes-04", 40, 40);
+            eyes4.setPosition(70, 150);
+            graphicsGroup2.add(eyes4);
 
-                Button button = new Button(valString, 40, 40);
-                button.setFillColor(new Color(255, 150, 190));
-                button.setLineColor(Color.WHITE);
-                graphicsGroup.add(button);
+            eyes4.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-04.png");
+                canvas.add(part);
+            });
 
-                button.onClick(() -> {
-                    switch (type) {
-                        case "Arms":
-                            mainGame.changeArms(currentVal);
-                            break;
-                        case "Ears":
-                            mainGame.changeEars(currentVal);
-                            break;
-                        case "Eyes":
-                            mainGame.changeEyes(currentVal);
-                            break;
-                        case "Legs":
-                            mainGame.changeLegs(currentVal);
-                            break;
-                        case "Mouths":
-                            mainGame.changeMouth(currentVal);
-                            break;
-                        case "Noses":
-                            mainGame.changeNose(currentVal);
-                            break;
-                        case "Accessories":
-                            mainGame.changeAccessories(currentVal);
-                            break;
-                    }
-                });
-                if (i <= 4) {
-                    button.setPosition(posX + (i * 30), posY + 20);
-                } else {
-                    button.setPosition(posX - 80 + ((i - 4) * 30), posY + 90);
-                }
-                posX += 20;
-            }
+            Button eyes5 = new Button("Eyes-05", 40, 40);
+            eyes5.setPosition(70, 150);
+            graphicsGroup2.add(eyes5);
+
+            eyes5.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-05.png");
+                canvas.add(part);
+            });
+
+            Button eyes6 = new Button("Eyes-06", 40, 40);
+            eyes6.setPosition(70, 150);
+            graphicsGroup2.add(eyes6);
+
+            eyes6.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-06.png");
+                canvas.add(part);
+            });
+
+            Button eyes7 = new Button("Eyes-07", 40, 40);
+            eyes7.setPosition(70, 150);
+            graphicsGroup2.add(eyes7);
+
+            eyes7.onClick(() -> {
+                canvas.remove(eye_parts);
+                Image part = new Image("Eyes\\Eyes-07.png");
+                canvas.add(part);
+            });
         }
-        canvas.add(graphicsGroup);
+
+
     }
+
+    //takes in the type of window, the number of buttons, and acts serperately for the color window
+    //I'll design it more thoroughly in class tomorrow
+    //builds in the buttons with the method call lambda, or a value that can be used later to call
+    
 }
