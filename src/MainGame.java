@@ -99,7 +99,7 @@ public class MainGame {
 
 
         oldMainButton.onClick(() -> {
-            backgroundChoice = backgroundList.get(1);
+            backgroundChoice = backgroundList.get(2);
             characterCreator(canvas);
         });
 
@@ -115,7 +115,7 @@ public class MainGame {
         canvas.add(jwallButton);
 
         jwallButton.onClick(() -> {
-            backgroundChoice = backgroundList.get(2);
+            backgroundChoice = backgroundList.get(1);
             characterCreator(canvas);
         });
 
