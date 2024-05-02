@@ -60,7 +60,7 @@ public class MainGame {
         canvas = new CanvasWindow("Main Window", CANVAS_WIDTH, CANVAS_HEIGHT);
 
         List<String> logoList = readFolder("res/Logo");
-        Image gameLogo = new Image(logoList.get(1));
+        Image gameLogo = new Image(logoList.get(3));
         gameLogo.setCenter(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
         canvas.add(gameLogo);
 

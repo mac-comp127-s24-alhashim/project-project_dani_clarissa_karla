@@ -13,7 +13,7 @@ Overall Description:
 -
   
 
-  The Mascot Generator game is designed to allow users to create a mascot based off the Macalester building and area of study they have the most interest in. The user may choose one of the four buildings, OLRI, Carnegie, Old Main, and JWall, in order to produce a specific background that relates to the majors that take place in said building. Afterwards the user will be given a blank canvas of a mascot to customize to their liking, while the main body will remain the same, an egg shape, the user will be able to pick it's ears, eyes, feet, accessories, etc. Once the user is satisfied with their mascot they'll press submit and have a brand new mascot for the building/departments of their choice.
+  The Mascot Generator game is designed to allow users to create a mascot based off the Macalester building and area of study they have the most interest in. The user may choose one of the four buildings, OLRI, Carnegie, Old Main, and JWall, in order to produce a specific background that relates to the majors that take place in said building. Afterwards the user will be given a blank canvas of a mascot to customize to their liking, while the main body will remain the same, an egg shape, the user will be able to pick its ears, eyes, feet, accessories, etc. Once the user is satisfied with their mascot they'll press submit and have a brand new mascot for the building/departments of their choice.
 
 Context:
 -
@@ -27,7 +27,7 @@ Overview
 -
 The following diagram shows how Mascot Generator works: 
 
-(insert diagram)
+![Structure Diagram](res/Logo/Diagram.png)
 
 1. The user opens the game and is greeted with the game logo and a start button that will take them to another screen. The canvas clears when the user clicks on the start button. This is done by an on-click event lambda. 
 ![Start Screen](res/Logo/GameStartScreen.png)
@@ -36,8 +36,9 @@ The following diagram shows how Mascot Generator works:
 ![Buildings Screen](res/Logo/BuildingChoices.png)
 3. The new screen built by this event contains more graphics elements that are triggered by different buttons. 
 ![Sample inside building screen](res/Logo/SampleBuildingScr.png)
-4. There are 
-
+Each of the assets that can be switched at will on the mascot are numbered and have a button that triggers their set position on the canvas. These are called from a list that accesses the folder they are stored in. 
+4. The randomizing button in the lower left corner uses a random object to gather elements from each list of assets to change the mascot at random. The "Done" button next to it removes all buttons, only leaving the mascot and the background on the screen. 
+![Sample done screen](res/Logo/SampleDone.png)
 
 
 
